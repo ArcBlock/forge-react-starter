@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "wangshijun <wangshijun2010@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
