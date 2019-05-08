@@ -2,11 +2,32 @@
   "name": "forge-react-starter",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "wangshijun <wangshijun2010@gmail.com>",
+  "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint server client",
+    "precommit": "lint-staged && yarn lint",
+    "prepush": "lint-staged && yarn lint"
+  },
+  "lint-staged": {
+    "*.{js,jsx,mjs,ts,tsx,css,less,scss,json,graphql}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "eslint": "5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
+    "prettier": "^1.17.0"
   }
 }

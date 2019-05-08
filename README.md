@@ -14,6 +14,12 @@ Forge SDK libraries included in the starter project:
 - [@arcblock/did-auth-react] react components that can implements basic UI elements to connect your application with ABT Wallet
 - [@arcblock/did-auth-storage] storage engines that powers the magic behind ABT Wallet qrcode scanning
 
+Other javascript project goodies:
+
+- [eslint] for consistent coding style
+- [prettier] for consistent code formatting
+- [husky] and [lint-staged] for prepush and precommit hooks
+
 ## Documentation
 
 TODO:
