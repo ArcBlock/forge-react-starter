@@ -21,6 +21,7 @@ Other javascript project goodies:
 - [husky] and [lint-staged] for prepush and precommit hooks
 - [nodemon] for auto restart server on node.js code change
 - [next.js] supports hot reload on client code change
+- [dotenv] to load configurations from `.env.x` files
 
 ## Folder Structure
 
