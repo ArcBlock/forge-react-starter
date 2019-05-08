@@ -5,9 +5,9 @@
   "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint server client",
-    "precommit": "lint-staged && yarn lint",
-    "prepush": "lint-staged && yarn lint"
+    "lint": "eslint server client app.js",
+    "build": "next build client",
+    "start": "nodemon app.js -w server -w app.js"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx,css,less,scss,json,graphql}": [
@@ -21,6 +21,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "5.3.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -28,6 +29,14 @@
     "eslint-plugin-react": "^7.11.0",
     "husky": "^2.2.0",
     "lint-staged": "^8.1.6",
+    "next-plugin-custom-babel-config": "^1.0.2",
+    "nodemon": "^1.19.0",
     "prettier": "^1.17.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn lint",
+      "pre-push": "lint-staged && yarn lint"
+    }
   }
 }

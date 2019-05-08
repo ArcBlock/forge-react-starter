@@ -19,6 +19,14 @@ Other javascript project goodies:
 - [eslint] for consistent coding style
 - [prettier] for consistent code formatting
 - [husky] and [lint-staged] for prepush and precommit hooks
+- [nodemon] for auto restart server on node.js code change
+- [next.js] supports hot reload on client code change
+
+## Folder Structure
+
+```terminal
+
+```
 
 ## Documentation
 
