@@ -61,7 +61,7 @@ export default function IndexPage() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button component="a" to={x.link} size="small" color="primary">
+                <Button component="a" href={x.link} size="small" color="primary">
                   Tyr Now
                 </Button>
               </CardActions>
