@@ -35,15 +35,38 @@ export default function IndexPage() {
   return (
     <Layout>
       <Main>
-        <Typography component="h2" variant="h3" className="page-header" color="textPrimary" gutterBottom>
-          {process.env.appName}
+        <Typography component="h2" variant="h4" className="page-header" color="textPrimary">
+          dApps the Easy Way!
         </Typography>
-        <Typography variant="h6" align="center" color="textSecondary" component="p">
-          Application boilerplate built on top of <a href="https://www.arcblock.io/en/forge-sdk">forge</a> powered
+        <Typography component="p" variant="h6" className="page-subheader" color="textSecondary">
+          Application boilerplate built on top of{' '}
+          <a href="https://www.arcblock.io/en/forge-sdk">forge (Ruby on Rails for Blockchain Space)</a> powered
           blockchain, with developer friendly{' '}
-          <a href="https://docs.arcblock.io/forge/latest/sdk/javascript.html">forge javascript sdk</a>. Makes it super
-          easy to start building distributed applications with tons of thousands of react/javascript
-          libraries/components
+          <a href="https://docs.arcblock.io/forge/latest/sdk/javascript.html">javascript sdk</a>. Makes it super easy to
+          start building distributed applications with tons of thousands of react/javascript libraries/components.
+        </Typography>
+        <Typography component="h3" variant="h5" className="page-subheader" color="textPrimary" gutterBottom>
+          Quick Start
+        </Typography>
+        <div className="quickstart">
+          <code>
+            <pre>
+              npm install -g @arcblock/forge-cli
+              <br />
+              forge init
+              <br />
+              forge start
+              <br />
+              forge create-project hello-forge
+              <br />
+              cd hello-forge
+              <br />
+              yarn start
+            </pre>
+          </code>
+        </div>
+        <Typography component="h3" variant="h5" className="page-subheader" color="textPrimary" gutterBottom>
+          ABT Wallet Examples
         </Typography>
         <div className="demos">
           {demos.map(x => (
@@ -67,23 +90,6 @@ export default function IndexPage() {
             </Card>
           ))}
         </div>
-        <div className="quickstart">
-          <code>
-            <pre>
-              npm install -g @arcblock/forge-cli
-              <br />
-              forge init
-              <br />
-              forge start
-              <br />
-              forge create-project hello-forge
-              <br />
-              cd hello-forge
-              <br />
-              yarn start
-            </pre>
-          </code>
-        </div>
       </Main>
     </Layout>
   );
@@ -92,13 +98,21 @@ export default function IndexPage() {
 const Main = styled.main`
   margin: 80px 0 0;
 
+  a {
+    color: ${props => props.theme.colors.green};
+    text-decoration: none;
+  }
+
   .page-header {
-    margin-bottom: 50px;
-    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .page-subheader {
+    margin-bottom: 30px;
   }
 
   .demos {
-    margin: 80px 0;
+    margin: 0 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,6 +121,10 @@ const Main = styled.main`
       width: 30%;
       height: 240px;
     }
+  }
+
+  .quickstart {
+    margin-bottom: 50px;
   }
 
   pre {

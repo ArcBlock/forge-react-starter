@@ -35,6 +35,7 @@ const theme = createMuiTheme({
       },
     },
   },
+  colors,
 });
 
 function createPageContext() {

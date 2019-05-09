@@ -37,6 +37,7 @@ export default function Header() {
       <div className="items">
         <Link href="/">
           <Typography variant="h6" color="inherit" noWrap className="brand">
+            <img className="logo" src="/static/images/logo.png" alt="arcblock" />
             {process.env.appName}
           </Typography>
         </Link>
@@ -98,6 +99,14 @@ const Nav = styled(Toolbar)`
   .brand {
     margin-right: 60px;
     cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .logo {
+      width: 140px;
+      margin-right: 16px;
+    }
   }
 
   .items {
