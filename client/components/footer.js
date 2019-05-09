@@ -52,7 +52,11 @@ export default function Footer() {
   ];
 
   return (
-    <Grid container spacing={32} justify="space-evenly" style={{ marginTop: '60px' }}>
+    <Grid
+      container
+      spacing={32}
+      justify="space-evenly"
+      style={{ marginTop: '80px', paddingTop: '40px', borderTop: '1px solid #cccccc' }}>
       {footers.map(x => (
         <Grid item xs key={x.title}>
           <Typography variant="h6" color="textPrimary" gutterBottom>

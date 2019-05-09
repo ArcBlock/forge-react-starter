@@ -41,9 +41,14 @@ export default function Header() {
           </Typography>
         </Link>
         {session.value && session.value.user && (
-          <Button href="/payment" size="large">
-            Payment
-          </Button>
+          <React.Fragment>
+            <Button href="/profile" size="large">
+              Profile
+            </Button>
+            <Button href="/payment" size="large">
+              Payment
+            </Button>
+          </React.Fragment>
         )}
       </div>
       {session.loading && (

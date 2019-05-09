@@ -36,7 +36,7 @@ export default function IndexPage() {
   return (
     <Layout>
       <Main>
-        <Typography component="h2" variant="h3" align="center" color="textPrimary" gutterBottom>
+        <Typography component="h2" variant="h3" className="page-header" color="textPrimary" gutterBottom>
           {process.env.appName}
         </Typography>
         <Typography variant="h6" align="center" color="textSecondary" component="p">
@@ -68,6 +68,25 @@ export default function IndexPage() {
             </Card>
           ))}
         </div>
+        <div className="quickstart">
+          <code>
+            <pre>
+              npm install -g @arcblock/forge-cli
+              <br />
+              forge init
+              <br />
+              forge start
+              <br />
+              forge new-project
+              <br />
+              hello-forge
+              <br />
+              cd hello-forge
+              <br />
+              yarn start
+            </pre>
+          </code>
+        </div>
       </Main>
     </Layout>
   );
@@ -76,15 +95,32 @@ export default function IndexPage() {
 const Main = styled.main`
   margin: 80px 0 0;
 
+  .page-header {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
   .demos {
-    margin: 50px 0;
+    margin: 80px 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     .demo {
-      width: 360px;
+      width: 30%;
       height: 240px;
     }
+  }
+
+  pre {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+      Courier New, monospace, serif;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    line-height: 1.5rem;
+    padding: 25px;
+    color: #ffffff;
+    background-color: #222222;
+    max-height: 600px;
   }
 `;
