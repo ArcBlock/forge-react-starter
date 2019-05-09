@@ -37,15 +37,13 @@ export default function Header() {
       <div className="items">
         <Link href="/">
           <Typography variant="h6" color="inherit" noWrap className="brand">
-            Forge WebAPP Starter
+            {process.env.appName}
           </Typography>
         </Link>
         {session.value && session.value.user && (
-          <React.Fragment>
-            <Button href="/payment" size="large">
-              Payment
-            </Button>
-          </React.Fragment>
+          <Button href="/payment" size="large">
+            Payment
+          </Button>
         )}
       </div>
       {session.loading && (

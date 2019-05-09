@@ -4,12 +4,14 @@ require('dotenv').config();
 const path = require('path');
 const withCSS = require('@zeit/next-css');
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config');
+const { brand } = require('../package.json');
 
 module.exports = withCSS(
   withCustomBabelConfigFile({
     babelConfigFile: path.join(__dirname, './babel.config.js'),
 
     env: {
+      appName: brand,
       appId: process.env.APP_ID,
       chainHost: process.env.CHAIN_HOST,
       chainId: process.env.CHAIN_ID,
