@@ -70,6 +70,12 @@ cd hello-forge
 npm start
 ```
 
+## FAQ
+
+### How to upgrade `@arcblock/*` dependencies?
+
+Simple, just `rm yarn.lock`, then `yarn`, be sure to test the starter after upgrading.
+
 ## LICENSE
 
 Copyright 2018-2019 ArcBlock
