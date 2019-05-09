@@ -7,7 +7,7 @@ export default function Footer() {
     {
       title: 'SDK Documentation',
       items: [
-        { title: 'Getting Started', link: 'https://docs.arcblock.io/forge/latest/' },
+        { title: 'Getting Started', link: 'https://docs.arcblock.io/forge/latest/sdk/javascript.html#getting-started' },
         { title: 'GraphQLClient', link: 'https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html' },
         {
           title: 'Mcrypto',
