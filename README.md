@@ -1,5 +1,7 @@
 # Forge React Starter
 
+> Brings tons of thousands react libraries/components to dApps that run on [forge](https://www.arcblock.io/en/forge-sdk) powered blockchain.
+
 A starter project that integrates [forge](https://docs.arcblock.io/forge/latest/) [javascript sdk](https://docs.arcblock.io/forge/latest/sdk/javascript.html) with mainstream javascript application batteries:
 
 - [React.js](https://reactjs.org/) the framework for view layer
