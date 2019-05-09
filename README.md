@@ -2,6 +2,8 @@
 
 > Brings tons of thousands react libraries/components to dApps that run on [forge](https://www.arcblock.io/en/forge-sdk) powered blockchain.
 
+![](./docs/starter-home.png)
+
 A starter project that integrates [forge](https://docs.arcblock.io/forge/latest/) [javascript sdk](https://docs.arcblock.io/forge/latest/sdk/javascript.html) with mainstream javascript application batteries:
 
 - [React.js](https://reactjs.org/) the framework for view layer
@@ -50,6 +52,12 @@ Other javascript project goodies:
 ├── version
 └── yarn.lock
 ```
+
+## Runtime Requirements
+
+- Mongodb v3+
+- Node.js v10+
+- That's all
 
 ## Usage
 
