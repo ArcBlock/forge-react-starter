@@ -26,7 +26,26 @@ Other javascript project goodies:
 ## Folder Structure
 
 ```terminal
-
+.
+├── LICENSE
+├── Makefile
+├── README.md
+├── app.js                    // application entry file
+├── client                    // code for client side pages
+│   ├── babel.config.js       // custom babel configuration
+│   ├── components            // shared react components/layouts across all pages
+│   ├── hooks                 // shared react hooks
+│   ├── libs                  // shared utility code
+│   ├── next.config.js        // custom next.js configuration
+│   ├── pages                 // pages
+│   └── static                // static assets that can be loaded by browser
+├── package.json
+├── server                    // backend code
+│   ├── libs                  // shared server libs
+│   ├── models                // mongoose db models
+│   └── routes                // express routes and handlers
+├── version
+└── yarn.lock
 ```
 
 ## Documentation
