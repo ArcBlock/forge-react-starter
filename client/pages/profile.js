@@ -97,7 +97,7 @@ export default function ProfilePage() {
           <Button color="secondary" variant="outlined" onClick={onLogout}>
             Logout
           </Button>
-          <Button color="primary" variant="outlined" href="/paid" style={{ marginTop: '30px' }}>
+          <Button color="primary" variant="outlined" href="/payment" style={{ marginTop: '30px' }}>
             My Purchase
           </Button>
           {balance.value && balance.value.account && (

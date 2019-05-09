@@ -42,11 +42,8 @@ export default function Header() {
         </Link>
         {session.value && session.value.user && (
           <React.Fragment>
-            <Button href="/paid" size="large">
-              Paid Content
-            </Button>
-            <Button href="/course" size="large">
-              Earn Certificate
+            <Button href="/payment" size="large">
+              Payment
             </Button>
           </React.Fragment>
         )}
@@ -62,7 +59,7 @@ export default function Header() {
         </Button>
       )}
       {session.value && session.value.user && (
-        <Button href="/me" className="avatar">
+        <Button href="/profile" className="avatar">
           <UserAvatar did={session.value.user.did} />
         </Button>
       )}
@@ -71,7 +68,7 @@ export default function Header() {
           <Auth
             action="login"
             onClose={() => toggle()}
-            onSuccess={() => (window.location.href = '/me')}
+            onSuccess={() => (window.location.href = '/profile')}
             messages={{
               title: 'login',
               scan: 'Scan QR code with ABT Wallet',
