@@ -43,6 +43,8 @@ app.prepare().then(() => {
   server.use(morgan(dev ? 'tiny' : 'combined'));
   server.use(
     session({
+      resave: false,
+      saveUninitialized: true,
       secret: process.env.COOKIE_SECRET,
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
