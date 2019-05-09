@@ -49,12 +49,13 @@ export default function PaymentPage() {
   }
 
   return (
-    <Layout>
+    <Layout title="Payment">
       <Main>
         {open && (
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => toggle()}>
             <Auth
               action="payment"
+              checkFn={axios.get}
               onClose={() => toggle()}
               onSuccess={() => window.location.reload()}
               messages={{

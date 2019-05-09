@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
 
 import Wrapper from './wrapper';
 import Header from './header';
 import Footer from './footer';
 
-export default function Layout({ children, contentOnly }) {
+export default function Layout({ title, children, contentOnly }) {
   if (contentOnly) {
     return <Container>{children}</Container>;
   }
 
   return (
     <Container>
+      <Helmet title={`${title} - ${process.env.appName}`} />
       <AppBar position="static" color="default">
         <Wrapper>
           <Header />
@@ -28,6 +30,7 @@ export default function Layout({ children, contentOnly }) {
 }
 
 Layout.propTypes = {
+  title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
   contentOnly: PropTypes.bool,
 };

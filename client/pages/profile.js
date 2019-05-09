@@ -74,12 +74,13 @@ export default function ProfilePage() {
   }
 
   return (
-    <Layout>
+    <Layout title="Profile">
       <Main>
         {isOpen && (
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => setOpen()}>
             <Auth
               action="checkin"
+              checkFn={axios.get}
               onClose={() => setOpen()}
               onSuccess={() => window.location.reload()}
               messages={{

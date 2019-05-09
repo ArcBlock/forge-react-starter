@@ -5,6 +5,8 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import JssProvider from 'react-jss/lib/JssProvider';
+import Helmet from 'react-helmet';
+
 import getContext from '../libs/context';
 
 export default class StyledDocument extends Document {
@@ -40,6 +42,7 @@ export default class StyledDocument extends Document {
 
     return {
       ...page,
+      helmet: Helmet.renderStatic(),
       styleTags: sheet.getStyleElement(),
       stylesContext: context,
       styles: (
@@ -52,11 +55,31 @@ export default class StyledDocument extends Document {
     };
   }
 
+  // should render on <html>
+  helmetHtmlAttrComponents() {
+    return this.props.helmet.htmlAttributes.toComponent();
+  }
+
+  // should render on <body>
+  helmetBodyAttrComponents() {
+    return this.props.helmet.bodyAttributes.toComponent();
+  }
+
+  // should render on <head>
+  helmetHeadComponents() {
+    return Object.keys(this.props.helmet)
+      .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
+      .map(el => this.props.helmet[el].toComponent());
+  }
+
   render() {
     return (
-      <html lang="en">
-        <Head>{this.props.styleTags}</Head>
-        <body style={{ padding: 0, margin: 0 }}>
+      <html lang="en" {...this.helmetHtmlAttrComponents()}>
+        <Head>
+          {this.props.styleTags}
+          {this.helmetHeadComponents()}
+        </Head>
+        <body style={{ padding: 0, margin: 0 }} {...this.helmetBodyAttrComponents()}>
           <Main />
           <NextScript />
         </body>

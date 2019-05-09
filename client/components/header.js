@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import qs from 'querystring';
 import styled from 'styled-components';
 import Link from 'next/link';
+import axios from 'axios';
 import useToggle from 'react-use/lib/useToggle';
 
 import Button from '@material-ui/core/Button';
@@ -71,6 +72,7 @@ export default function Header() {
         <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={toggle}>
           <Auth
             action="login"
+            checkFn={axios.get}
             onClose={() => toggle()}
             onSuccess={() => (window.location.href = '/profile')}
             messages={{

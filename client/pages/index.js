@@ -33,7 +33,7 @@ const demos = [
 
 export default function IndexPage() {
   return (
-    <Layout>
+    <Layout title="Home">
       <Main>
         <Typography component="h2" variant="h4" className="page-header" color="textPrimary">
           dApps the Easy Way!
