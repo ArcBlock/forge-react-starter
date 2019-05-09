@@ -27,7 +27,7 @@ export default function PaymentPage() {
 
   if (state.loading || !state.value) {
     return (
-      <Layout>
+      <Layout title="Payment">
         <Main>
           <CircularProgress />
         </Main>
@@ -37,7 +37,7 @@ export default function PaymentPage() {
 
   if (state.error) {
     return (
-      <Layout>
+      <Layout title="Payment">
         <Main>{state.error.message}</Main>
       </Layout>
     );
