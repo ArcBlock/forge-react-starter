@@ -101,7 +101,7 @@ export default function ProfilePage() {
             My Purchase
           </Button>
           {balance.value && balance.value.account && (
-            <Button color="primary" variant="outlined" onClick={() => setOpen()} style={{ marginTop: '30px' }}>
+            <Button color="primary" variant="contained" onClick={() => setOpen()} style={{ marginTop: '30px' }}>
               Get 25 TBA
             </Button>
           )}

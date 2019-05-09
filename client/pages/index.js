@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';

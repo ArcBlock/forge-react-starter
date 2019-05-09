@@ -68,10 +68,10 @@ export default function PaymentPage() {
         )}
         <div className="avatar">
           <Avatar size={240} did={state.value.session.user.did} />
-          <Button color="secondary" disabled={state.value.payment} variant="outlined" onClick={() => toggle()}>
+          <Button color="secondary" disabled={state.value.payment} variant="contained" onClick={() => toggle()}>
             {state.value.payment ? 'Already Paid' : 'Make Payment'}
           </Button>
-          <Button color="primary" variant="outlined" href="/me" style={{ marginTop: '30px' }}>
+          <Button color="primary" variant="outlined" href="/profile" style={{ marginTop: '30px' }}>
             My Profile
           </Button>
         </div>
