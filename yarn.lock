@@ -16,24 +16,24 @@
   integrity sha512-drKJDNYPIap9raOqLydwJ59IhniHHi8UpN1v1oLskp0bhMhdSe/0pdrrp/T193eOOSliZV6GUlXoFIghIL5lQA==
 
 "@arcblock/did-auth@latest":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.25.2.tgz#efeadedb1f3a9ad8ec738b67b6096fe0696aca31"
-  integrity sha512-nLukWZNEkqi8OZ2VhibUgLSOEgwbJ7RPDk0yk3/ExrlSQRLs48aQ6WlPvF7hvqj7/pp2gSFrCCVRih7v87i47A==
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.26.0.tgz#916c06e6bab37fee5b964869d3849e9c528913e9"
+  integrity sha512-jSnfzRfkZABpHFaPRzxYRFED+ZMXIMjCHHLIfd88U45URCqG7awlr/6iUap7cKPPKpiqYDMuqxuris4bmyvuBQ==
   dependencies:
-    "@arcblock/did" "^0.25.2"
-    "@arcblock/forge-util" "^0.25.2"
-    "@arcblock/forge-wallet" "^0.25.2"
-    "@arcblock/mcrypto" "^0.25.2"
+    "@arcblock/did" "^0.26.0"
+    "@arcblock/forge-util" "^0.26.0"
+    "@arcblock/forge-wallet" "^0.26.0"
+    "@arcblock/mcrypto" "^0.26.0"
     debug "^4.1.1"
     multibase "^0.6.0"
 
-"@arcblock/did@^0.25.2":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/did/-/did-0.25.2.tgz#e415172703badb82a15936a910be8309e305502f"
-  integrity sha512-xq8Qu9mlET4NJKCER8jioX90VENbu4L3v7ZYP5HwhgdOkjIJDJeD0n8G6+CVVWNx6wa01R3rKjWkQZa1L0kzLA==
+"@arcblock/did@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/did/-/did-0.26.0.tgz#ef573ebdcb7075f4714d35d5872a22d427908c18"
+  integrity sha512-6CYB9QYxtXFi7yp9T0o26026IwukOzTsRwT4cpjfdp0crjmc03vHqf5JG0pU7hlbII1HBygDjg7/YJFDoRM4Pg==
   dependencies:
-    "@arcblock/forge-util" "^0.25.2"
-    "@arcblock/mcrypto" "^0.25.2"
+    "@arcblock/forge-util" "^0.26.0"
+    "@arcblock/mcrypto" "^0.26.0"
     base64-url "^2.2.0"
     debug "^4.1.1"
     hdkey "^1.1.1"
@@ -42,51 +42,51 @@
     multibase "^0.6.0"
     randombytes "^2.0.6"
 
-"@arcblock/forge-message@^0.25.2":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/forge-message/-/forge-message-0.25.2.tgz#b85ca1fab91f97bf63f916f5e1ff19054dbff652"
-  integrity sha512-HjSh0GJchw+bA6bZStld2aQ/NZjTE9duVKeWMJtWp2a+HDOmZO4IlEUVZzROzaU4AMM9uIz8Vk575ql/HOvmiA==
+"@arcblock/forge-message@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/forge-message/-/forge-message-0.26.0.tgz#0349a09c25e1f4c3d784801c16cc336027f3da8b"
+  integrity sha512-h2AetNNU8sP7k443z191yNkFQmnNUgs+xlDNg13EJidPGKkUI2czpLXxVPwZNzt9jXkx3NW9BssooOT9QIyMUg==
   dependencies:
-    "@arcblock/forge-proto" "^0.25.2"
-    "@arcblock/forge-util" "^0.25.2"
+    "@arcblock/forge-proto" "^0.26.0"
+    "@arcblock/forge-util" "^0.26.0"
     camelcase "^5.0.0"
     debug "^4.1.1"
     google-protobuf "3.7.0-rc.2"
 
-"@arcblock/forge-proto@^0.25.2":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/forge-proto/-/forge-proto-0.25.2.tgz#9fff0272fa4729c6b7498cba24eef691fc28c329"
-  integrity sha512-wRVSsAqVcEjwvvRhtqzQzTL+QwiOqU34nJT2WVY02NLFLsoAIllIW1fj9AM9ZiAaSskXiyXwk/XQ5HpOQxEV8w==
+"@arcblock/forge-proto@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/forge-proto/-/forge-proto-0.26.0.tgz#8b40ff61fbf7e1b14c4036d78b9d1ced80cb742d"
+  integrity sha512-9rWlNHdtpemM1HXcdnaTTS+M0Kh4eBXXHJrcM97HukqaIMkwN7pk8kywI9jgZgHeuWOmQfvkLd4Gc1BWucQnYg==
   dependencies:
     debug "^4.1.1"
     lodash.get "^4.4.2"
 
-"@arcblock/forge-util@^0.25.2", "@arcblock/forge-util@latest":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/forge-util/-/forge-util-0.25.2.tgz#a10946f8f6d0b1d0081d31fb97e59ad9f60355a5"
-  integrity sha512-7v33HHVfuh42Qne1U5KExvTWS5ETc3vP7d2D+v/5safgrRQOZtp5meHnWR8MX7izlEOXSMdFv24wK+qE/J8o7Q==
+"@arcblock/forge-util@^0.26.0", "@arcblock/forge-util@latest":
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/forge-util/-/forge-util-0.26.0.tgz#eec8dd7d9aa567df1a23a0451ac27e96295b16fe"
+  integrity sha512-Pzm2ZFEcQTDqfP7aA5EqyKHRhC4g4xNy3YFjSVLsJDWhJhNz2tY0gtWv9Ab/fDF6Mkdcgs7g8u18gybmH5KG2Q==
   dependencies:
     bn.js "4.11.6"
     lodash "^4.17.11"
     number-to-bn "^1.7.0"
     utf8 "^3.0.0"
 
-"@arcblock/forge-wallet@^0.25.2", "@arcblock/forge-wallet@latest":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/forge-wallet/-/forge-wallet-0.25.2.tgz#c24dd07bbf734e3ae44b07aea99ddaf159c48520"
-  integrity sha512-BXTttEWGriX72qk4kzAcuq8lDkZ9LdzLq6GEm0V7eP/etIIzU14QgOzmYg0OdsWQjMQLpJfaCw9mEx/TASKf5Q==
+"@arcblock/forge-wallet@^0.26.0", "@arcblock/forge-wallet@latest":
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/forge-wallet/-/forge-wallet-0.26.0.tgz#9456c2b8c3084a4aef9013e0edd3a3734544db6e"
+  integrity sha512-YzZmJXJ96xs1zoScyQsN8o6HSTkW1MOSzUS8ljPzemKjF7JdpFBhpOjooOR/4wkDg+fHppP0WeVWLReRydl/mA==
   dependencies:
-    "@arcblock/did" "^0.25.2"
-    "@arcblock/mcrypto" "^0.25.2"
+    "@arcblock/did" "^0.26.0"
+    "@arcblock/mcrypto" "^0.26.0"
 
 "@arcblock/graphql-client@latest":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/graphql-client/-/graphql-client-0.25.2.tgz#3f4027786801dd02d25cf6e3032c74a705d85600"
-  integrity sha512-B+XShDTCQkk3voaqL3D38A1SBiGtCTWwII30rwZsBmrj3BItLW77LchfZ+vyFyti6xFz2JgfJfnwYB7rNusZlg==
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/graphql-client/-/graphql-client-0.26.0.tgz#8f814f0c8b6b6107065be7ec469e7f205763ffb4"
+  integrity sha512-unJ8AiWChXuIZFXYBzMclMayVWH4vc38LwOnXQRu0V/SASlVklp24C4CTaxi/8RujfdaJ3JgRu6N8UULI3+cNQ==
   dependencies:
-    "@arcblock/forge-message" "^0.25.2"
-    "@arcblock/forge-proto" "^0.25.2"
-    "@arcblock/forge-wallet" "^0.25.2"
+    "@arcblock/forge-message" "^0.26.0"
+    "@arcblock/forge-proto" "^0.26.0"
+    "@arcblock/forge-wallet" "^0.26.0"
     "@arcblock/sdk-util" "^0.19.6"
     babel-polyfill "^6.26.0"
     base64-url "^2.2.0"
@@ -97,12 +97,12 @@
     phoenix-channels "^1.0.0"
     wolfy87-eventemitter "^5.2.5"
 
-"@arcblock/mcrypto@^0.25.2", "@arcblock/mcrypto@latest":
-  version "0.25.2"
-  resolved "https://registry.npmjs.org/@arcblock/mcrypto/-/mcrypto-0.25.2.tgz#6490c658450d61fa73467d2c0f072d586f52194d"
-  integrity sha512-lQPzCuoKLJuyjJ8HSlTp69oTyJho5Ir67Rn7Lda18CRyoNUypds3v9g9bWXsn2pJNHALoDi3/hPpHbSIvwEeHQ==
+"@arcblock/mcrypto@^0.26.0", "@arcblock/mcrypto@latest":
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/@arcblock/mcrypto/-/mcrypto-0.26.0.tgz#9cffbc905664cac934c9ed6e75f8f99805da3400"
+  integrity sha512-nXKQSNqA9wJdOM/em4J67lVwZkyO51euuZ5PKBqU5cC8I48PD81VTrdIzEXCULCr6Fh3BvqtqGEqEPYh7X3TeA==
   dependencies:
-    "@arcblock/forge-util" "^0.25.2"
+    "@arcblock/forge-util" "^0.26.0"
     crypto-js "^3.1.9-1"
     elliptic "^6.4.1"
     interface "^1.2.1"
@@ -1392,10 +1392,11 @@ asn1.js@^4.0.0:
     minimalistic-assert "^1.0.0"
 
 assert@^1.1.1:
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
-  integrity sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/assert/-/assert-1.5.0.tgz#55c109aaf6e0aefdb3dc4b71240c70bf574b18eb"
+  integrity sha512-EDsgawzwoun2CZkCgtxJbv392v4nbk9XDD06zI+kQYoBM/3RBWLlEyJARDOmhAAosBjWACEkKL6S+lIZtcAubA==
   dependencies:
+    object-assign "^4.1.1"
     util "0.10.3"
 
 assign-symbols@^1.0.0:
@@ -2476,9 +2477,9 @@ cyclist@~0.2.2:
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
 damerau-levenshtein@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.4.tgz#03191c432cb6eea168bb77f3a55ffdccb8978514"
-  integrity sha1-AxkcQyy27qFou3fzpV/9zLiXhRQ=
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.5.tgz#780cf7144eb2e8dbd1c3bb83ae31100ccc31a414"
+  integrity sha512-CBCRqFnpu715iPmw1KrdOrzRqbdFwQTwAWyyyYS42+iAgHCuXZ+/TdMgQkUENPomxEz9z1BEzuQU2Xw0kUuAgA==
 
 date-fns@^1.27.2:
   version "1.30.1"
@@ -4848,7 +4849,7 @@ mongodb-core@2.1.20:
     bson "~1.0.4"
     require_optional "~1.0.0"
 
-mongodb-core@3.2.3, mongodb-core@^3.2.3:
+mongodb-core@3.2.3:
   version "3.2.3"
   resolved "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.2.3.tgz#eb9bcb876f169f5843fd135f7f7686dbac0e9e34"
   integrity sha512-UyI0rmvPPkjOJV8XGWa9VCTq7R4hBVipimhnAXeSXnuAPjuTqbyfA5Ec9RcYJ1Hhu+ISnc8bJ1KfGZd4ZkYARQ==
@@ -4859,7 +4860,7 @@ mongodb-core@3.2.3, mongodb-core@^3.2.3:
   optionalDependencies:
     saslprep "^1.0.0"
 
-mongodb-core@3.2.4:
+mongodb-core@3.2.4, mongodb-core@^3.2.3:
   version "3.2.4"
   resolved "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.2.4.tgz#6731b46c5f367bfeca94a0989e0dcb9f54e95208"
   integrity sha512-Ea/fjVntuj0nhLPuDPj54Kce+w4Ee6b1oSM2EvNB4OdwXJ5WIEh79st9/FRZVKwGnc2oB19P1SMSC1noOBXUCQ==
@@ -4901,9 +4902,9 @@ mongoose-legacy-pluralize@1.0.2:
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
 mongoose@^5.5.6:
-  version "5.5.6"
-  resolved "https://registry.npmjs.org/mongoose/-/mongoose-5.5.6.tgz#ab03488a4dd82f7015271a61a4f85de6b6b19cb2"
-  integrity sha512-XbCVIQTQgzRAPLc8t8Tw5l/uTzdRV6lDnR7Q8KCsXnaX4D1tEFybtWxesidn4WkrGi67PiIWzu5Lsu7SwKkYug==
+  version "5.5.7"
+  resolved "https://registry.npmjs.org/mongoose/-/mongoose-5.5.7.tgz#496d2142b594579adaba5d4e3f1cc70c5a9ddd74"
+  integrity sha512-Xs4SVuMGkMRdmKZ6ATGVvbp2pjI+KENCNhPZMnksjU3ZerkJHGhWKrUE1A6e/5iZ2lTu6Oz9AOPcfrDgp6BCUw==
   dependencies:
     async "2.6.1"
     bson "~1.1.1"
