@@ -76,9 +76,7 @@ export default function IndexPage() {
               <br />
               forge start
               <br />
-              forge new-project
-              <br />
-              hello-forge
+              forge create-project hello-forge
               <br />
               cd hello-forge
               <br />

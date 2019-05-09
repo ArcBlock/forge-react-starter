@@ -1,27 +1,28 @@
 # Forge React Starter
 
-A starter project that integrates forge javascript sdk with mainstream javascript application batteries:
+A starter project that integrates [forge](https://docs.arcblock.io/forge/latest/) [javascript sdk](https://docs.arcblock.io/forge/latest/sdk/javascript.html) with mainstream javascript application batteries:
 
-- [Next.js] for crafting pages and SSR
-- [React] the framework for view layer
-- [Material-UI] for resuable react components
-- [Express.js] as custom web server that can serve custom api
-- [Mongoose] as database ORM layer
+- [React.js](https://reactjs.org/) the framework for view layer
+- [Next.js](https://nextjs.org/) for crafting pages and SSR
+- [Material-UI](https://material-ui.com/) for resuable react components
+- [Express.js](http://expressjs.com/) as custom web server that can serve custom api
+- [Mongoose](https://mongoosejs.com/) as database ORM layer
 
 Forge SDK libraries included in the starter project:
 
-- [@arcblock/graphql-client] as communication layer between application and forge powered blockchain
-- [@arcblock/did-auth-react] react components that can implements basic UI elements to connect your application with ABT Wallet
-- [@arcblock/did-auth-storage] storage engines that powers the magic behind ABT Wallet qrcode scanning
+- [@arcblock/graphql-client](https://www.npmjs.com/package/@arcblock/graphql-client) as communication layer between application and forge powered blockchain
+- [@arcblock/did-auth](https://www.npmjs.com/package/@arcblock/did-auth) help application do jwt based auth with ABT wallet
+- [@arcblock/did-auth-storage-mongo](https://www.npmjs.com/package/@arcblock/did-auth-storage-mongo) storage engines that powers the magic behind ABT Wallet qrcode scanning
+- [@arcblock/ui-did]() react components that can implements basic UI elements to connect your application with ABT Wallet, such as avatar and auth dialog
 
 Other javascript project goodies:
 
-- [eslint] for consistent coding style
-- [prettier] for consistent code formatting
-- [husky] and [lint-staged] for prepush and precommit hooks
-- [nodemon] for auto restart server on node.js code change
-- [next.js] supports hot reload on client code change
-- [dotenv] to load configurations from `.env.x` files
+- `eslint`: for consistent coding style
+- `prettier`: for consistent code formatting
+- `husky`: and `lint-staged` for prepush and precommit hooks
+- `nodemon`: for auto restart server on node.js code change
+- `next.js`: supports hot reload on client code change
+- `dotenv`: to load configurations from `.env` files
 
 ## Folder Structure
 
@@ -48,10 +49,29 @@ Other javascript project goodies:
 └── yarn.lock
 ```
 
-## Documentation
+## Usage
 
-TODO:
+```terminal
+npm install -g @arcblock/forge-cli
+forge init
+forge start
+forge create-project hello-forge
+cd hello-forge
+npm start
+```
 
 ## LICENSE
 
-TODO:
+Copyright 2018-2019 ArcBlock
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
