@@ -27,7 +27,7 @@ module.exports = withCSS(
       config.entry = async () => {
         const entries = await originalEntry();
         if (entries['main.js']) {
-          entries['main.js'].unshift('babel-polyfill');
+          entries['main.js'].unshift('@babel/polyfill');
         }
         return entries;
       };

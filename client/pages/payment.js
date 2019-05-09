@@ -8,10 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Dialog from '@material-ui/core/Dialog';
+import Auth from '@arcblock/react-forge/lib/Auth';
+import Avatar from '@arcblock/react-forge/lib/Avatar';
 
 import Layout from '../components/layout';
-import Auth from '../components/auth';
-import Avatar from '../components/avatar';
 
 async function fetchStatus() {
   const [{ data: payment }, { data: session }] = await Promise.all([

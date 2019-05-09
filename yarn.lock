@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@arcblock/did-auth-storage-mongo@^0.20.1":
+"@arcblock/did-auth-storage-mongo@latest":
   version "0.20.1"
   resolved "https://registry.npmjs.org/@arcblock/did-auth-storage-mongo/-/did-auth-storage-mongo-0.20.1.tgz#dc94028ffaf9e26c3adc7f1f2fc0043d6121932b"
   integrity sha512-qH5FtAjRjYtlap074Wj/dL/NMcfbpWPWdDywAKbssW49dI5HOOYg0EXed7TgjI9rtNHNaF3vfiEypLeNKReVSA==
@@ -15,7 +15,7 @@
   resolved "https://registry.npmjs.org/@arcblock/did-auth-storage/-/did-auth-storage-0.20.1.tgz#b0adbb64fdca53c6c2e36204a6ac029baf478e8a"
   integrity sha512-drKJDNYPIap9raOqLydwJ59IhniHHi8UpN1v1oLskp0bhMhdSe/0pdrrp/T193eOOSliZV6GUlXoFIghIL5lQA==
 
-"@arcblock/did-auth@^0.25.2":
+"@arcblock/did-auth@latest":
   version "0.25.2"
   resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.25.2.tgz#efeadedb1f3a9ad8ec738b67b6096fe0696aca31"
   integrity sha512-nLukWZNEkqi8OZ2VhibUgLSOEgwbJ7RPDk0yk3/ExrlSQRLs48aQ6WlPvF7hvqj7/pp2gSFrCCVRih7v87i47A==
@@ -61,7 +61,7 @@
     debug "^4.1.1"
     lodash.get "^4.4.2"
 
-"@arcblock/forge-util@^0.25.2":
+"@arcblock/forge-util@^0.25.2", "@arcblock/forge-util@latest":
   version "0.25.2"
   resolved "https://registry.npmjs.org/@arcblock/forge-util/-/forge-util-0.25.2.tgz#a10946f8f6d0b1d0081d31fb97e59ad9f60355a5"
   integrity sha512-7v33HHVfuh42Qne1U5KExvTWS5ETc3vP7d2D+v/5safgrRQOZtp5meHnWR8MX7izlEOXSMdFv24wK+qE/J8o7Q==
@@ -71,7 +71,7 @@
     number-to-bn "^1.7.0"
     utf8 "^3.0.0"
 
-"@arcblock/forge-wallet@^0.25.2":
+"@arcblock/forge-wallet@^0.25.2", "@arcblock/forge-wallet@latest":
   version "0.25.2"
   resolved "https://registry.npmjs.org/@arcblock/forge-wallet/-/forge-wallet-0.25.2.tgz#c24dd07bbf734e3ae44b07aea99ddaf159c48520"
   integrity sha512-BXTttEWGriX72qk4kzAcuq8lDkZ9LdzLq6GEm0V7eP/etIIzU14QgOzmYg0OdsWQjMQLpJfaCw9mEx/TASKf5Q==
@@ -79,7 +79,7 @@
     "@arcblock/did" "^0.25.2"
     "@arcblock/mcrypto" "^0.25.2"
 
-"@arcblock/graphql-client@^0.25.2":
+"@arcblock/graphql-client@latest":
   version "0.25.2"
   resolved "https://registry.npmjs.org/@arcblock/graphql-client/-/graphql-client-0.25.2.tgz#3f4027786801dd02d25cf6e3032c74a705d85600"
   integrity sha512-B+XShDTCQkk3voaqL3D38A1SBiGtCTWwII30rwZsBmrj3BItLW77LchfZ+vyFyti6xFz2JgfJfnwYB7rNusZlg==
@@ -97,7 +97,7 @@
     phoenix-channels "^1.0.0"
     wolfy87-eventemitter "^5.2.5"
 
-"@arcblock/mcrypto@^0.25.2":
+"@arcblock/mcrypto@^0.25.2", "@arcblock/mcrypto@latest":
   version "0.25.2"
   resolved "https://registry.npmjs.org/@arcblock/mcrypto/-/mcrypto-0.25.2.tgz#6490c658450d61fa73467d2c0f072d586f52194d"
   integrity sha512-lQPzCuoKLJuyjJ8HSlTp69oTyJho5Ir67Rn7Lda18CRyoNUypds3v9g9bWXsn2pJNHALoDi3/hPpHbSIvwEeHQ==
@@ -109,6 +109,23 @@
     js-sha3 "^0.8.0"
     randombytes "^2.0.6"
     tweetnacl "^1.0.1"
+
+"@arcblock/react-forge@latest":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@arcblock/react-forge/-/react-forge-0.2.0.tgz#9082c6a420c7e5c4fedf2fb4eb24ac3a6f633805"
+  integrity sha512-VeTJZfuWH+nB7pB+aDRgPOXqch89nSSkJWXBUsNAJEPu2Wlvjb28e20G3vuzXIddcfeh/Z+u3+YyE6Yin7uQqg==
+  dependencies:
+    "@arcblock/react-hooks" "^0.2.0"
+    qrcode.react "^0.9.3"
+    react-load-script "^0.0.6"
+
+"@arcblock/react-hooks@^0.2.0", "@arcblock/react-hooks@latest":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@arcblock/react-hooks/-/react-hooks-0.2.0.tgz#f13c7cbe16095ee7c187bd4ebbcb01eb85fc3f17"
+  integrity sha512-QSxQTce5zblRd8JBIMwnJ0eV2N7gAs73WGQWaeUsJHukcNwgDByat3RVvs+38Alhtz4hfWlxXAdvt+X5ruKeHA==
+  dependencies:
+    qrcode.react "^0.9.3"
+    react-load-script "^0.0.6"
 
 "@arcblock/sdk-util@^0.19.6":
   version "0.19.7"
@@ -719,6 +736,14 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
+
+"@babel/polyfill@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.npmjs.org/@babel/polyfill/-/polyfill-7.4.4.tgz#78801cf3dbe657844eeabf31c1cae3828051e893"
+  integrity sha512-WlthFLfhQQhh+A2Gn5NSFl0Huxz36x86Jn+E9OW7ibK8edKPq+KLy4apM1yDpQ8kJOVi1OVjpP4vSDLdrI04dg==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.2"
 
 "@babel/preset-env@7.1.0":
   version "7.1.0"
@@ -2238,7 +2263,7 @@ core-js@^1.0.0:
   resolved "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.5.7:
+core-js@^2.4.0, core-js@^2.5.0, core-js@^2.5.7, core-js@^2.6.5:
   version "2.6.5"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
   integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
@@ -6051,6 +6076,11 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-load-script@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/react-load-script/-/react-load-script-0.0.6.tgz#db6851236aaa25bb622677a2eb51dad4f8d2c258"
+  integrity sha512-aRGxDGP9VoLxcsaYvKWIW+LRrMOzz2eEcubTS4NvQPPugjk2VvMhow0wWTkSl7RxookomD1MwcP4l5UStg5ShQ==
 
 react-ssr-prepass@1.0.2:
   version "1.0.2"

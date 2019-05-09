@@ -12,11 +12,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Dialog from '@material-ui/core/Dialog';
+import Auth from '@arcblock/react-forge/lib/Auth';
+import Avatar from '@arcblock/react-forge/lib/Avatar';
 
 import Layout from '../components/layout';
-import Avatar from '../components/avatar';
-import Auth from '../components/auth';
-
 import useSession from '../hooks/session';
 import forge from '../libs/forge';
 
