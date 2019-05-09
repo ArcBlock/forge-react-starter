@@ -37,9 +37,9 @@ class MyApp extends App {
               name: 'viewport',
               content: 'width=device-width, initial-scale=1',
             },
-            { property: 'og:title', content: 'Hello next.js!' },
-          ]}
-        />
+          ]}>
+          <link rel="shortcut icon" href="/static/favicon.ico" />
+        </Helmet>
         <JssProvider registry={this.pageContext.sheetsRegistry} generateClassName={this.pageContext.generateClassName}>
           <MuiThemeProvider theme={this.pageContext.theme} sheetsManager={this.pageContext.sheetsManager}>
             <ThemeProvider theme={this.pageContext.theme}>
