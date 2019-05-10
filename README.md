@@ -61,6 +61,8 @@ Other javascript project goodies:
 
 ## Usage
 
+### Create new project with forge-cli
+
 ```terminal
 npm install -g @arcblock/forge-cli
 forge init
@@ -68,6 +70,16 @@ forge start
 forge create-project hello-forge
 cd hello-forge
 npm start
+```
+
+### Just use this starter repo
+
+> **Note: You have to setup an `.env` file manually.**
+
+```terminal
+git clone https://github.com/ArcBlock/forge-react-starter.git
+cd forge-react-starter
+yarn
 ```
 
 ## Configuration
