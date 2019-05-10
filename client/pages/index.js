@@ -84,7 +84,7 @@ export default function IndexPage() {
               </CardContent>
               <CardActions>
                 <Button component="a" href={x.link} size="small" color="primary">
-                  Tyr Now
+                  Try Now
                 </Button>
               </CardActions>
             </Card>
