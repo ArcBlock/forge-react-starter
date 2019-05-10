@@ -8,8 +8,9 @@
     "lint": "eslint server client app.js",
     "build": "next build client",
     "export": "next build client && next export client",
-    "lambda": "parcel build server/functions/app.js && rm dist/app.js.map",
-    "netlify": "npm run export && npm run lambda",
+    "lambda:parcel": "parcel build server/functions/app.js && rm dist/app.js.map",
+    "lambda:netlify": "netlify-lambda build --config config/webpack.functions.js server/functions",
+    "netlify": "npm run export && npm run lambda:netlify",
     "start": "nodemon app.js -w server -w app.js"
   },
   "lint-staged": {
@@ -45,6 +46,7 @@
     "mongoose": "5.4.23",
     "morgan": "^1.9.1",
     "multibase": "^0.6.0",
+    "netlify-lambda": "^1.4.7",
     "next": "^8.1.0",
     "next-plugin-custom-babel-config": "^1.0.2",
     "parcel-bundler": "^1.12.3",
@@ -55,7 +57,8 @@
     "react-jss": "^8.6.1",
     "react-use": "^8.4.0",
     "serverless-http": "^2.0.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
