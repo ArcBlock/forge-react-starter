@@ -3,15 +3,17 @@
 /**
  * This file is only used to deploy the apis need for abt wallet qrcode scanning to work
  */
-const cors = require('cors');
-const morgan = require('morgan');
-const express = require('express');
-const mongoose = require('mongoose');
-const serverless = require('serverless-http');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+import cors from 'cors';
+import morgan from 'morgan';
+import express from 'express';
+import mongoose from 'mongoose';
+import serverless from 'serverless-http';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import session from 'express-session';
+import ConnectMongo from 'connect-mongo';
+
+const MongoStore = ConnectMongo(session);
 
 const dev = process.env.NODE_ENV !== 'production';
 
@@ -44,7 +46,7 @@ require('../routes')(server);
 // Make it serverless
 const handler = serverless(server);
 
-module.exports.handler = async (event, context) => {
+exports.handler = async (event, context) => {
   // Do something here
   const result = await handler(event, context);
   return result;
