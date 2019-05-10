@@ -13,7 +13,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-const dev = process.env.NODE_ENV !== 'production';
 console.log('env', JSON.stringify(process.env));
 
 if (!process.env.MONGO_URI) {
@@ -54,20 +53,28 @@ server.use(
 server.use(
   session({
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
 
+server.use((req, res) => {
+  res.json({
+    url: req.url,
+    headers: req.headers,
+    query: req.query,
+  });
+});
+
+server.get('/hello', (req, res) => {
+  res.send('hello world');
+});
+
 const router = express.Router();
 
 // eslint-disable-next-line global-require
 require('../routes')(router);
-
-router.get('/hello', (req, res) => {
-  res.send('hello world');
-});
 
 router.get('/api/routes', (req, res) => {
   // eslint-disable-next-line no-underscore-dangle
