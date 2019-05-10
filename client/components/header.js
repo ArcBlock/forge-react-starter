@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import qs from 'querystring';
 import styled from 'styled-components';
 import Link from 'next/link';
-import axios from 'axios';
 import useToggle from 'react-use/lib/useToggle';
 
 import Button from '@material-ui/core/Button';
@@ -15,6 +14,7 @@ import Auth from '@arcblock/react-forge/lib/Auth';
 import UserAvatar from '@arcblock/react-forge/lib/Avatar';
 
 import useSession from '../hooks/session';
+import api from '../libs/api';
 
 export default function Header() {
   const session = useSession();
@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <Nav>
-      <div className="items">
+      <div className="nav-left">
         <Link href="/">
           <Typography variant="h6" color="inherit" noWrap className="brand">
             <img className="logo" src="/static/images/logo.png" alt="arcblock" />
@@ -58,22 +58,26 @@ export default function Header() {
           <CircularProgress size={20} color="secondary" />
         </Button>
       )}
-      {session.value && !session.value.user && (
-        <Button color="primary" variant="outlined" onClick={toggle}>
-          Login
+      <div className="nav-right">
+        <Button href="https://github.com/ArcBlock/forge-react-starter" className="github" target="_blank">
+          GitHub
         </Button>
-      )}
-      {session.value && session.value.user && (
-        <Button href="/profile" className="avatar">
-          <UserAvatar did={session.value.user.did} />
-        </Button>
-      )}
+        {session.value && !session.value.user && (
+          <Button color="primary" variant="outlined" onClick={toggle}>
+            Login
+          </Button>
+        )}
+        {session.value && session.value.user && (
+          <Button href="/profile" className="avatar">
+            <UserAvatar did={session.value.user.did} />
+          </Button>
+        )}
+      </div>
       {open && (
         <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={toggle}>
           <Auth
             action="login"
-            prefix={process.env.apiPrefix}
-            checkFn={axios.get}
+            checkFn={api.get}
             onClose={() => toggle()}
             onSuccess={() => (window.location.href = '/profile')}
             messages={{
@@ -112,9 +116,19 @@ const Nav = styled(Toolbar)`
     }
   }
 
-  .items {
+  .nav-left {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .github {
+      margin-right: 16px;
+    }
   }
 `;

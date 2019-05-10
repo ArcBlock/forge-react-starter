@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import useAsyncFn from 'react-use/lib/useAsyncFn';
 import useToggle from 'react-use/lib/useToggle';
 import { fromUnitToToken } from '@arcblock/forge-util';
@@ -18,6 +17,7 @@ import Avatar from '@arcblock/react-forge/lib/Avatar';
 import Layout from '../components/layout';
 import useSession from '../hooks/session';
 import forge from '../libs/forge';
+import api from '../libs/api';
 
 export default function ProfilePage() {
   const state = useSession();
@@ -39,7 +39,7 @@ export default function ProfilePage() {
   }, [state.value]);
 
   const onLogout = async () => {
-    await axios.post('/api/logout');
+    await api.post('/api/logout');
     window.location.href = '/';
   };
 
@@ -80,8 +80,7 @@ export default function ProfilePage() {
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => setOpen()}>
             <Auth
               action="checkin"
-              prefix={process.env.apiPrefix}
-              checkFn={axios.get}
+              checkFn={api.get}
               onClose={() => setOpen()}
               onSuccess={() => window.location.reload()}
               messages={{

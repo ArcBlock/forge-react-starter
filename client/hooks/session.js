@@ -1,8 +1,8 @@
-import axios from 'axios';
 import useAsync from 'react-use/lib/useAsync';
+import api from '../libs/api';
 
 async function fetchSession() {
-  const res = await axios.get('/api/session');
+  const res = await api.get('/api/session');
   // console.log('fetchSession', res.data);
   return res.data;
 }

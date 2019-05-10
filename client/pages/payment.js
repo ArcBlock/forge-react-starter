@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import useAsync from 'react-use/lib/useAsync';
 import useToggle from 'react-use/lib/useToggle';
 
@@ -12,12 +11,10 @@ import Auth from '@arcblock/react-forge/lib/Auth';
 import Avatar from '@arcblock/react-forge/lib/Avatar';
 
 import Layout from '../components/layout';
+import api from '../libs/api';
 
 async function fetchStatus() {
-  const [{ data: payment }, { data: session }] = await Promise.all([
-    axios.get('/api/payments'),
-    axios.get('/api/session'),
-  ]);
+  const [{ data: payment }, { data: session }] = await Promise.all([api.get('/api/payments'), api.get('/api/session')]);
   return { payment, session };
 }
 
@@ -55,8 +52,7 @@ export default function PaymentPage() {
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => toggle()}>
             <Auth
               action="payment"
-              prefix={process.env.apiPrefix}
-              checkFn={axios.get}
+              checkFn={api.get}
               onClose={() => toggle()}
               onSuccess={() => window.location.reload()}
               messages={{
