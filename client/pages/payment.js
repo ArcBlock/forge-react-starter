@@ -55,6 +55,7 @@ export default function PaymentPage() {
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => toggle()}>
             <Auth
               action="payment"
+              prefix={process.env.apiPrefix}
               checkFn={axios.get}
               onClose={() => toggle()}
               onSuccess={() => window.location.reload()}

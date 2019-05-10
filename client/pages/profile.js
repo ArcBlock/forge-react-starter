@@ -80,6 +80,7 @@ export default function ProfilePage() {
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => setOpen()}>
             <Auth
               action="checkin"
+              prefix={process.env.apiPrefix}
               checkFn={axios.get}
               onClose={() => setOpen()}
               onSuccess={() => window.location.reload()}

@@ -12,6 +12,7 @@ module.exports = withCSS(
     env: {
       appName: process.env.APP_NAME,
       appId: process.env.APP_ID,
+      apiPrefix: process.env.NF_API_PREFIX || process.env.API_PREFIX || '',
       chainHost: process.env.CHAIN_HOST,
       chainId: process.env.CHAIN_ID,
     },
