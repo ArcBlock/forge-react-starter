@@ -1,6 +1,10 @@
 # Forge React Starter
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e0c63e91-97b5-45df-95d1-1bad86153559/deploy-status)](https://app.netlify.com/sites/forge-react-starter/deploys)
+
 > Brings tons of thousands react libraries/components to dApps that run on [forge](https://www.arcblock.io/en/forge-sdk) powered blockchain.
+
+[Live preview](https://forge-react-starter.netlify.com/)
 
 ![](./docs/starter-home.png)
 
@@ -105,6 +109,10 @@ BASE_URL="http://192.168.1.6:3030"
 ### How to upgrade `@arcblock/*` dependencies?
 
 Simple, just `rm yarn.lock`, then `yarn`, be sure to test the starter after upgrading.
+
+### How to deploy my application?
+
+Checkout [Deployment.md](./docs/deployment.md)
 
 ### What APIs are supported by `GraphQLClient`?
 
