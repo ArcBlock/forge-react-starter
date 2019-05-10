@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@arcblock/did-auth-storage-mongo@latest":
-  version "0.20.1"
-  resolved "https://registry.npmjs.org/@arcblock/did-auth-storage-mongo/-/did-auth-storage-mongo-0.20.1.tgz#dc94028ffaf9e26c3adc7f1f2fc0043d6121932b"
-  integrity sha512-qH5FtAjRjYtlap074Wj/dL/NMcfbpWPWdDywAKbssW49dI5HOOYg0EXed7TgjI9rtNHNaF3vfiEypLeNKReVSA==
+"@arcblock/did-auth-storage-mongo@0.20.3":
+  version "0.20.3"
+  resolved "https://registry.npmjs.org/@arcblock/did-auth-storage-mongo/-/did-auth-storage-mongo-0.20.3.tgz#422358fc5c0a40b9cae5632861b2ebee36b21d2f"
+  integrity sha512-Gtn8410fF12PK8Glx3bYz4/719Dgd73c/JnIZ2lJzFCY8P7esKfJJH3iV0Nx4I4SzsN4K6n8J+tsFhGutSsX7A==
   dependencies:
     "@arcblock/did-auth-storage" "^0.20.1"
-    mongodb "^3.2.3"
+    mongodb "3.1.13"
 
 "@arcblock/did-auth-storage@^0.20.1":
   version "0.20.1"
@@ -2110,7 +2110,7 @@ bs58@^2.0.1:
   resolved "https://registry.npmjs.org/bs58/-/bs58-2.0.1.tgz#55908d58f1982aba2008fa1bed8f91998a29bf8d"
   integrity sha1-VZCNWPGYKrogCPob7Y+RmYopv40=
 
-bson@^1.1.1, bson@~1.1.1:
+bson@^1.1.0, bson@~1.1.0:
   version "1.1.1"
   resolved "https://registry.npmjs.org/bson/-/bson-1.1.1.tgz#4330f5e99104c4e751e7351859e2d408279f2f13"
   integrity sha512-jCGVYLoYMHDkOsbwJZBCqwMHyH4c+wzgI9hG7Z6SZJRXWr+x58pdIbm2i9a/jFGCkRJqRUr8eoI7lDWa0hTkxg==
@@ -5200,49 +5200,23 @@ mongodb-core@2.1.20:
     bson "~1.0.4"
     require_optional "~1.0.0"
 
-mongodb-core@3.0.11:
-  version "3.0.11"
-  resolved "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.0.11.tgz#737c496119aebbf3548d3fc7553266e56c826c77"
-  integrity sha512-agzBbSP3ahEYJyBMQicj70B+n+NNYsKaroezu5ETcImXs9nqf89/QI6e8iipg2rY3a8OWZBHWvqYxnsWasrUQA==
+mongodb-core@3.1.11:
+  version "3.1.11"
+  resolved "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.1.11.tgz#b253038dbb4d7329f3d1c2ee5400bb0c9221fde5"
+  integrity sha512-rD2US2s5qk/ckbiiGFHeu+yKYDXdJ1G87F6CG3YdaZpzdOm5zpoAZd/EKbPmFO6cQZ+XVXBXBJ660sSI0gc6qg==
   dependencies:
-    bson "~1.0.4"
-    require_optional "^1.0.1"
-
-mongodb-core@3.2.3:
-  version "3.2.3"
-  resolved "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.2.3.tgz#eb9bcb876f169f5843fd135f7f7686dbac0e9e34"
-  integrity sha512-UyI0rmvPPkjOJV8XGWa9VCTq7R4hBVipimhnAXeSXnuAPjuTqbyfA5Ec9RcYJ1Hhu+ISnc8bJ1KfGZd4ZkYARQ==
-  dependencies:
-    bson "^1.1.1"
+    bson "^1.1.0"
     require_optional "^1.0.1"
     safe-buffer "^5.1.2"
   optionalDependencies:
     saslprep "^1.0.0"
 
-mongodb-core@3.2.4, mongodb-core@^3.2.3:
-  version "3.2.4"
-  resolved "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.2.4.tgz#6731b46c5f367bfeca94a0989e0dcb9f54e95208"
-  integrity sha512-Ea/fjVntuj0nhLPuDPj54Kce+w4Ee6b1oSM2EvNB4OdwXJ5WIEh79st9/FRZVKwGnc2oB19P1SMSC1noOBXUCQ==
+mongodb@3.1.13:
+  version "3.1.13"
+  resolved "https://registry.npmjs.org/mongodb/-/mongodb-3.1.13.tgz#f8cdcbb36ad7a08b570bd1271c8525753f75f9f4"
+  integrity sha512-sz2dhvBZQWf3LRNDhbd30KHVzdjZx9IKC0L+kSZ/gzYquCF5zPOgGqRz6sSCqYZtKP2ekB4nfLxhGtzGHnIKxA==
   dependencies:
-    bson "^1.1.1"
-    require_optional "^1.0.1"
-    safe-buffer "^5.1.2"
-  optionalDependencies:
-    saslprep "^1.0.0"
-
-mongodb@3.0.11:
-  version "3.0.11"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-3.0.11.tgz#f09163b8928e8eb2fc0240b5a0e557e806947954"
-  integrity sha512-60KV+DPW++fzaD5cYbieCRQcXiYWQdRLHBqQyuu3rJmrP8vYZgI4u5UwfsUX6nGLON69FUIu4d3tH+WL4jShuA==
-  dependencies:
-    mongodb-core "3.0.11"
-
-mongodb@3.2.3:
-  version "3.2.3"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-3.2.3.tgz#4610ee33d300caa74329c2dd03e137210723cd91"
-  integrity sha512-jw8UyPsq4QleZ9z+t/pIVy3L++51vKdaJ2Q/XXeYxk/3cnKioAH8H6f5tkkDivrQL4PUgUOHe9uZzkpRFH1XtQ==
-  dependencies:
-    mongodb-core "^3.2.3"
+    mongodb-core "3.1.11"
     safe-buffer "^5.1.2"
 
 mongodb@^2.0.36:
@@ -5254,36 +5228,27 @@ mongodb@^2.0.36:
     mongodb-core "2.1.20"
     readable-stream "2.2.7"
 
-mongodb@^3.2.3:
-  version "3.2.4"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-3.2.4.tgz#770eca46ba89a830816e172830c0743660a2ce31"
-  integrity sha512-tjuwdRb89oyCamBG9lWkb7Sf4L/XJ0hsTC22NkbECl3j2X8n+rM+ZlK3dyIPdaJXdc4FOKIRd9dodVJgCtsYMA==
-  dependencies:
-    mongodb-core "3.2.4"
-    safe-buffer "^5.1.2"
-
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
-mongoose@^5.4.21:
-  version "5.5.7"
-  resolved "https://registry.npmjs.org/mongoose/-/mongoose-5.5.7.tgz#496d2142b594579adaba5d4e3f1cc70c5a9ddd74"
-  integrity sha512-Xs4SVuMGkMRdmKZ6ATGVvbp2pjI+KENCNhPZMnksjU3ZerkJHGhWKrUE1A6e/5iZ2lTu6Oz9AOPcfrDgp6BCUw==
+mongoose@5.4.23:
+  version "5.4.23"
+  resolved "https://registry.npmjs.org/mongoose/-/mongoose-5.4.23.tgz#89203165116122f0784cb5b12b77ee639761b13c"
+  integrity sha512-23IfTiA9FRJ7yPBFBobpjw5L1OiXzwyAnslB5SI1uN/2nXdd4vqQuP8w0w2ZcrvQ/KP3Mqs02v6n7tc8KzYNMA==
   dependencies:
     async "2.6.1"
-    bson "~1.1.1"
+    bson "~1.1.0"
     kareem "2.3.0"
-    mongodb "3.2.3"
-    mongodb-core "3.2.3"
+    mongodb "3.1.13"
+    mongodb-core "3.1.11"
     mongoose-legacy-pluralize "1.0.2"
-    mpath "0.6.0"
+    mpath "0.5.1"
     mquery "3.2.0"
     ms "2.1.1"
     regexp-clone "0.0.1"
     safe-buffer "5.1.2"
-    sift "7.0.1"
     sliced "1.0.1"
 
 morgan@^1.9.1:
@@ -5309,10 +5274,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mpath@0.6.0:
-  version "0.6.0"
-  resolved "https://registry.npmjs.org/mpath/-/mpath-0.6.0.tgz#aa922029fca4f0f641f360e74c5c1b6a4c47078e"
-  integrity sha512-i75qh79MJ5Xo/sbhxrDrPSEG0H/mr1kcZXJ8dH6URU5jD/knFxCVqVC/gVSW7GIXL/9hHWlT9haLbCXWOll3qw==
+mpath@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.npmjs.org/mpath/-/mpath-0.5.1.tgz#17131501f1ff9e6e4fbc8ffa875aa7065b5775ab"
+  integrity sha512-H8OVQ+QEz82sch4wbODFOz+3YQ61FYz/z3eJ5pIdbMEaUzDqA268Wd+Vt4Paw9TJfvDgVKaayC0gBzMIw2jhsg==
 
 mquery@3.2.0:
   version "3.2.0"
@@ -6886,9 +6851,9 @@ rxjs@^5.5.2:
     symbol-observable "1.0.1"
 
 rxjs@^6.3.3:
-  version "6.5.1"
-  resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.1.tgz#f7a005a9386361921b8524f38f54cbf80e5d08f4"
-  integrity sha512-y0j31WJc83wPu31vS1VlAFW5JGrnGC+j+TtGAa1fRQphy48+fDYiDmX8tjGloToEsMkxnouOg/1IzXGKkJnZMg==
+  version "6.5.2"
+  resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.2.tgz#2e35ce815cd46d84d02a209fb4e5921e051dbec7"
+  integrity sha512-HUb7j3kvb7p7eCUHE3FqjoDsC1xfZQ4AHFWfTKSpZ+sAhhz5X1WX0ZuUqWbzB2QhSLp3DoLUG+hMdEDKqWo2Zg==
   dependencies:
     tslib "^1.9.0"
 
@@ -7128,11 +7093,6 @@ shell-quote@^1.6.1:
     array-map "~0.0.0"
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
-
-sift@7.0.1:
-  version "7.0.1"
-  resolved "https://registry.npmjs.org/sift/-/sift-7.0.1.tgz#47d62c50b159d316f1372f8b53f9c10cd21a4b08"
-  integrity sha512-oqD7PMJ+uO6jV9EQCl0LrRw1OwsiPsiFQR5AR30heR+4Dl7jBBbDLnNvWiak20tzZlSE1H7RB30SX/1j/YYT7g==
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
