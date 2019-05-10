@@ -9,6 +9,24 @@ import Helmet from 'react-helmet';
 import getPageContext from '../libs/context';
 
 const GlobalStyle = createGlobalStyle`
+  a {
+    color: ${props => props.theme.colors.green};
+    text-decoration: none;
+  }
+
+  pre,code {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+      Courier New, monospace, serif;
+  }
+
+  pre {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    line-height: 1.5rem;
+    padding: 25px;
+    color: #ffffff;
+    background-color: #222222;
+  }
 `;
 
 class MyApp extends App {
