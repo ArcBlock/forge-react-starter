@@ -34,3 +34,4 @@ client/out
 server/lambda
 .netlify
 .cache
+dist
