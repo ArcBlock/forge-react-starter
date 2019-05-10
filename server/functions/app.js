@@ -14,8 +14,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const dev = process.env.NODE_ENV !== 'production';
-
-console.log('env', process.env);
+console.log('env', JSON.stringify(process.env));
 
 if (!process.env.MONGO_URI) {
   throw new Error('Cannot start application without process.env.MONGO_URI');
@@ -28,9 +27,30 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 // Create and config express application
 const server = express();
 server.use(cookieParser());
-server.use(bodyParser());
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cors());
-server.use(morgan(dev ? 'tiny' : 'combined'));
+
+server.use(
+  morgan((tokens, req, res) => {
+    const log = [
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+      tokens.res(req, res, 'content-length'),
+      '-',
+      tokens['response-time'](req, res),
+      'ms',
+    ].join(' ');
+
+    if (process.env.NODE_ENV !== 'dev') {
+      // Log only in AWS context to get back function logs
+      console.log(log);
+    }
+    return log;
+  })
+);
+
 server.use(
   session({
     resave: false,
@@ -40,9 +60,16 @@ server.use(
   })
 );
 
+const router = express.Router();
+
+router.get('/hello', (req, res) => {
+  res.send('hello world');
+});
+
 // eslint-disable-next-line global-require
-// require('../routes')(server);
-server.get('*', (req, res) => res.json({ status: 200, message: 'I am ok' }));
+require('../routes')(router);
+
+server.use(dev ? '/' : '/.netlify/functions/', router);
 
 // Make it serverless
 exports.handler = serverless(server);

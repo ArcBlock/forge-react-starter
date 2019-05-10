@@ -38,7 +38,8 @@ app.prepare().then(() => {
   // Create and config express application
   const server = express();
   server.use(cookieParser());
-  server.use(bodyParser());
+  server.use(bodyParser.json());
+  server.use(bodyParser.urlencoded({ extended: true }));
   server.use(cors());
   server.use(morgan(dev ? 'tiny' : 'combined'));
   server.use(
