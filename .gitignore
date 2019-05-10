@@ -33,3 +33,4 @@ client/.next
 client/out
 server/lambda
 .netlify
+.cache

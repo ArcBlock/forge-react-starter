@@ -3,17 +3,15 @@
 /**
  * This file is only used to deploy the apis need for abt wallet qrcode scanning to work
  */
-import cors from 'cors';
-import morgan from 'morgan';
-import express from 'express';
-import mongoose from 'mongoose';
-import serverless from 'serverless-http';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import session from 'express-session';
-import ConnectMongo from 'connect-mongo';
-
-const MongoStore = ConnectMongo(session);
+const cors = require('cors');
+const morgan = require('morgan');
+const express = require('express');
+const serverless = require('serverless-http');
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const dev = process.env.NODE_ENV !== 'production';
 
