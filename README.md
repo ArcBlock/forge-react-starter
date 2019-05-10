@@ -70,11 +70,35 @@ cd hello-forge
 npm start
 ```
 
+## Configuration
+
+dApp configuration file is auto generated and stored in `.env`, example configure as:
+
+```text
+MONGO_URI="mongodb://127.0.0.1:27017/forge-starter"
+COOKIE_SECRET="71548f479c310ebc5bd972"
+CHAIN_ID="forge"
+CHAIN_HOST="http://192.168.1.6:8210/api"
+APP_NAME="Forge Starter"
+APP_PORT="3030"
+APP_SK="0xd8ee2e2b73e0f3d7b7c5d53"
+APP_ID="zNKtrS7etp2WQYnbVtknbDrVa23Q3eycdcDw"
+BASE_URL="http://192.168.1.6:3030"
+```
+
+> Caution: `.env` contains very sensitive info such as Application wallet secret key, PLEASE DO NOT COMMIT `.env` FILE
+
 ## FAQ
 
 ### How to upgrade `@arcblock/*` dependencies?
 
 Simple, just `rm yarn.lock`, then `yarn`, be sure to test the starter after upgrading.
+
+### What APIs are supported by `GraphQLClient`?
+
+Checkout the following screenshot or just run the starter and open browser console.
+
+![](./docs/api-list.png)
 
 ## LICENSE
 
