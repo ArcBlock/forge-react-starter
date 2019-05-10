@@ -8,7 +8,7 @@
     "lint": "eslint server client app.js",
     "build": "next build client",
     "export": "next build client && next export client",
-    "lambda": "parcel server/functions/app.js && rm dist/app.js.map",
+    "lambda": "parcel build server/functions/app.js && rm dist/app.js.map",
     "netlify": "npm run export && npm run lambda",
     "start": "nodemon app.js -w server -w app.js"
   },
