@@ -15,6 +15,8 @@ const MongoStore = require('connect-mongo')(session);
 
 const dev = process.env.NODE_ENV !== 'production';
 
+console.log('env', process.env);
+
 if (!process.env.MONGO_URI) {
   throw new Error('Cannot start application without process.env.MONGO_URI');
 }
@@ -39,13 +41,8 @@ server.use(
 );
 
 // eslint-disable-next-line global-require
-require('../routes')(server);
+// require('../routes')(server);
+server.get('*', (req, res) => res.json({ status: 200, message: 'I am ok' }));
 
 // Make it serverless
-const handler = serverless(server);
-
-exports.handler = async (event, context) => {
-  // Do something here
-  const result = await handler(event, context);
-  return result;
-};
+exports.handler = serverless(server);
