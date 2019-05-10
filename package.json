@@ -7,6 +7,9 @@
   "scripts": {
     "lint": "eslint server client app.js",
     "build": "next build client",
+    "lambda": "netlify-lambda build server/functions",
+    "export": "next build client && next export client",
+    "netlify": "npm run export && npm run lambda",
     "start": "nodemon app.js -w server -w app.js"
   },
   "lint-staged": {
@@ -49,6 +52,7 @@
     "react-helmet": "^5.2.1",
     "react-jss": "^8.6.1",
     "react-use": "^8.4.0",
+    "serverless-http": "^2.0.1",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
@@ -61,6 +65,7 @@
     "eslint-plugin-react": "^7.11.0",
     "husky": "^2.2.0",
     "lint-staged": "^8.1.6",
+    "netlify-lambda": "^1.4.7",
     "next-plugin-custom-babel-config": "^1.0.2",
     "nodemon": "^1.19.0",
     "prettier": "^1.17.0"
