@@ -8,17 +8,19 @@ const morgan = require('morgan');
 const express = require('express');
 const serverless = require('serverless-http');
 const mongoose = require('mongoose');
-const moment = require('moment');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
+/* eslint-disable */
+const moment = require('moment');
 const Mcrypto = require('@arcblock/mcrypto');
 const multibase = require('multibase');
 const { fromTokenToUnit } = require('@arcblock/forge-util');
 const { fromAddress } = require('@arcblock/forge-wallet');
 const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
 const { client, wallet, handlers } = require('../libs/auth');
+/* eslint-enable */
 
 // Routes: due to limitations of netlify-lambda, we need to import all routes here
 const loginAuth = require('../routes/auth/login');
@@ -73,29 +75,9 @@ server.use(
 
 const router = express.Router();
 
-router.get('/sha3', (req, res) => {
-  const source = Date.now();
-  res.json({
-    source,
-    hash: Mcrypto.Hasher.SHA3.hash256(utf8ToHex(source.toString())),
-  });
-});
-
 router.get('/chainInfo', async (req, res) => {
   const { info } = await client.getChainInfo();
   res.json(info);
-});
-
-router.get('/wallet', (req, res) => {
-  res.json({
-    app: wallet,
-    user: fromAddress(wallet.address),
-    date: moment(new Date().toISOString())
-      .utc()
-      .format('YYYY-MM-DD'),
-    hex: bytesToHex(multibase.decode(wallet.address)),
-    bg: fromTokenToUnit(50).toString(),
-  });
 });
 
 handlers.attach(Object.assign({ app: router }, loginAuth));
