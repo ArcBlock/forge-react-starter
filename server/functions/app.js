@@ -9,16 +9,16 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
 /* eslint-disable */
-const moment = require('moment');
-const Mcrypto = require('@arcblock/mcrypto');
-const multibase = require('multibase');
-const { fromTokenToUnit } = require('@arcblock/forge-util');
-const { fromAddress } = require('@arcblock/forge-wallet');
-const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
-const { client, wallet, handlers } = require('../libs/auth');
+// const moment = require('moment');
+// const Mcrypto = require('@arcblock/mcrypto');
+// const multibase = require('multibase');
+// const { fromTokenToUnit } = require('@arcblock/forge-util');
+// const { fromAddress } = require('@arcblock/forge-wallet');
+// const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
 /* eslint-enable */
 
 // Routes: due to limitations of netlify-lambda, we need to import all routes here
+const { handlers } = require('../libs/auth');
 const loginAuth = require('../routes/auth/login');
 const paymentAuth = require('../routes/auth/payment');
 const checkinAuth = require('../routes/auth/checkin');
@@ -71,17 +71,13 @@ server.use(
 
 const router = express.Router();
 
-router.get('/chainInfo', async (req, res) => {
-  const { info } = await client.getChainInfo();
-  res.json(info);
-});
-
 handlers.attach(Object.assign({ app: router }, loginAuth));
 handlers.attach(Object.assign({ app: router }, checkinAuth));
 handlers.attach(Object.assign({ app: router }, paymentAuth));
 paymentsRoutes.init(router);
 sessionRoutes.init(router);
 
+// This is required by netlify functions
 server.use('/.netlify/functions/app', router);
 
 server.use((req, res) => {
