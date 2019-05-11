@@ -53,15 +53,15 @@ export default function Header() {
           </React.Fragment>
         )}
       </div>
-      {session.loading && (
-        <Button>
-          <CircularProgress size={20} color="secondary" />
-        </Button>
-      )}
       <div className="nav-right">
         <Button href="https://github.com/ArcBlock/forge-react-starter" className="github" target="_blank">
           GitHub
         </Button>
+        {session.loading && (
+          <Button>
+            <CircularProgress size={20} color="secondary" />
+          </Button>
+        )}
         {session.value && !session.value.user && (
           <Button color="primary" variant="outlined" onClick={toggle}>
             Login
