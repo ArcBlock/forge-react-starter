@@ -1,10 +1,10 @@
 module.exports = {
   init(app) {
-    app.get('/api/session', async (req, res) => {
+    app.get('/api/session', (req, res) => {
       res.json(req.session);
     });
 
-    app.post('/api/logout', async (req, res) => {
+    app.post('/api/logout', (req, res) => {
       req.session.user = null;
       res.json(req.session);
     });

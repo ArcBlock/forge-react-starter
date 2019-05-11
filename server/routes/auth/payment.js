@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const multibase = require('multibase');
 const { fromTokenToUnit } = require('@arcblock/forge-util');
 const { fromAddress } = require('@arcblock/forge-wallet');
@@ -22,25 +23,29 @@ module.exports = {
     },
   },
   onAuth: async ({ claims, did }) => {
-    // console.log('pay.onAuth', { claims, did });
-    const claim = claims.find(x => x.type === 'signature');
-    const tx = client.decodeTx(multibase.decode(claim.origin));
-    const user = fromAddress(did);
+    console.log('pay.onAuth', { claims, did });
+    try {
+      const claim = claims.find(x => x.type === 'signature');
+      const tx = client.decodeTx(multibase.decode(claim.origin));
+      const user = fromAddress(did);
 
-    const { hash } = await client.sendTransferTx({
-      tx,
-      wallet: user,
-      signature: claim.sigHex,
-    });
+      const { hash } = await client.sendTransferTx({
+        tx,
+        wallet: user,
+        signature: claim.sigHex,
+      });
 
-    const payment = new Payment({
-      did,
-      hash,
-      status: 'confirmed',
-    });
+      const payment = new Payment({
+        did,
+        hash,
+        status: 'confirmed',
+      });
 
-    await payment.save();
-    console.log('pay.onAuth', hash);
+      await payment.save();
+      console.log('pay.onAuth', hash);
+    } catch (err) {
+      console.error('pay.onAuth.error', err);
+    }
   },
   onComplete: (req, { did }) => {
     console.log('pay.onComplete', { did });

@@ -7,11 +7,12 @@
   "scripts": {
     "lint": "eslint server client app.js",
     "build": "next build client",
+    "clean": "rm -rf client/dist server/dist",
     "export": "next build client && next export client -o client/dist",
     "lambda:parcel": "parcel build server/functions/app.js && rm dist/app.js.map",
     "lambda:netlify": "netlify-lambda build --config config/webpack.functions.js server/functions",
     "lambda:serve": "netlify-lambda serve --config config/webpack.functions.js server/functions",
-    "netlify": "npm run export && npm run lambda:netlify",
+    "netlify": "npm run clean && npm run export && npm run lambda:netlify",
     "start": "nodemon app.js -w server -w app.js"
   },
   "lint-staged": {

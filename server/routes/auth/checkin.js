@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const multibase = require('multibase');
 const moment = require('moment');
 const { fromAddress } = require('@arcblock/forge-wallet');
@@ -23,17 +24,21 @@ module.exports = {
     },
   },
   onAuth: async ({ claims, did }) => {
-    const claim = claims.find(x => x.type === 'signature');
-    const tx = client.decodeTx(multibase.decode(claim.origin));
-    const wallet = fromAddress(did);
-    console.log('poke.onAuth.payload', { tx, claim });
+    try {
+      const claim = claims.find(x => x.type === 'signature');
+      const tx = client.decodeTx(multibase.decode(claim.origin));
+      const wallet = fromAddress(did);
+      console.log('poke.onAuth.payload', { tx, claim });
 
-    const { hash } = await client.sendTransferTx({
-      tx,
-      wallet,
-      signature: claim.sigHex,
-    });
-    console.log('poke.onAuth', hash);
+      const { hash } = await client.sendTransferTx({
+        tx,
+        wallet,
+        signature: claim.sigHex,
+      });
+      console.log('poke.onAuth', hash);
+    } catch (err) {
+      console.error('poke.onAuth.error', err);
+    }
   },
   onComplete: (req, { did }) => {
     console.log('poke.onComplete', { did });

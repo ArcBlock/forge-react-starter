@@ -6,7 +6,8 @@
 const morgan = require('morgan');
 const express = require('express');
 const serverless = require('serverless-http');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const User = require('../models/user');
 
 console.log('env', JSON.stringify(process.env));
 
@@ -15,8 +16,8 @@ if (!process.env.MONGO_URI) {
 }
 
 // Connect to database
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
-// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Create and config express application
 const server = express();
@@ -41,9 +42,14 @@ server.use(
   })
 );
 
-server.get('/.netlify/functions/express/hello', (req, res) => {
-  res.send('hello world');
+const router = express.Router();
+
+router.get('/users', async (req, res) => {
+  const users = await User.find({});
+  res.json({ users });
 });
+
+server.use('/.netlify/functions/mongo', router);
 
 // Make it serverless
 exports.handler = serverless(server);
