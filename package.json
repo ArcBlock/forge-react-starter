@@ -1,7 +1,7 @@
 {
   "name": "forge-react-starter",
   "version": "0.4.0",
-  "main": "index.js",
+  "main": "app.js",
   "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,6 @@
     "build": "next build client",
     "clean": "rm -rf client/dist server/dist",
     "export": "next build client && next export client -o client/dist",
-    "lambda:parcel": "parcel build server/functions/app.js && rm dist/app.js.map",
     "lambda:netlify": "netlify-lambda build --config config/webpack.functions.js server/functions",
     "lambda:serve": "netlify-lambda serve --config config/webpack.functions.js server/functions",
     "netlify": "npm run clean && npm run export && npm run lambda:netlify",
@@ -48,10 +47,7 @@
     "mongoose": "5.4.23",
     "morgan": "^1.9.1",
     "multibase": "^0.6.0",
-    "netlify-lambda": "^1.4.7",
     "next": "^8.1.0",
-    "next-plugin-custom-babel-config": "^1.0.2",
-    "parcel-bundler": "^1.12.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -59,8 +55,7 @@
     "react-jss": "^8.6.1",
     "react-use": "^8.4.0",
     "serverless-http": "^2.0.1",
-    "styled-components": "^4.2.0",
-    "webpack-node-externals": "^1.7.2"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -73,8 +68,11 @@
     "eslint-plugin-react": "^7.11.0",
     "husky": "^2.2.0",
     "lint-staged": "^8.1.6",
+    "netlify-lambda": "^1.4.7",
+    "next-plugin-custom-babel-config": "^1.0.2",
     "nodemon": "^1.19.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "husky": {
     "hooks": {
