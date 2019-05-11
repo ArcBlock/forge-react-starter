@@ -14,8 +14,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
 const Mcrypto = require('@arcblock/mcrypto');
+const multibase = require('multibase');
 const { fromAddress } = require('@arcblock/forge-wallet');
-const { utf8ToHex } = require('@arcblock/forge-util');
+const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
 const { client, wallet, handlers } = require('../libs/auth');
 
 // Routes
@@ -93,7 +94,7 @@ router.get('/wallet', (req, res) => {
     date: moment(new Date().toISOString())
       .utc()
       .format('YYYY-MM-DD'),
-    address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+    hex: bytesToHex(multibase.decode(wallet.address)),
   });
 });
 

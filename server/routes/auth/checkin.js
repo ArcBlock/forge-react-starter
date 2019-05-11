@@ -7,21 +7,19 @@ const { client } = require('../../libs/auth');
 module.exports = {
   action: 'checkin',
   claims: {
-    signature() {
-      return {
-        txType: 'PokeTx',
-        txData: {
-          nonce: 0,
-          itx: {
-            date: moment(new Date().toISOString())
-              .utc()
-              .format('YYYY-MM-DD'),
-            address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-          },
+    signature: () => ({
+      txType: 'PokeTx',
+      txData: {
+        nonce: 0,
+        itx: {
+          date: moment(new Date().toISOString())
+            .utc()
+            .format('YYYY-MM-DD'),
+          address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
         },
-        description: 'Sign this transaction to receive 25 TBA for test purpose',
-      };
-    },
+      },
+      description: 'Sign this transaction to receive 25 TBA for test purpose',
+    }),
   },
   onAuth: async ({ claims, did }) => {
     try {
