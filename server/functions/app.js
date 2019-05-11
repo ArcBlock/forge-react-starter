@@ -1,8 +1,4 @@
 /* eslint-disable no-console */
-
-/**
- * This file is only used to deploy the apis need for abt wallet qrcode scanning to work
- */
 const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
