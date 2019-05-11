@@ -8,10 +8,24 @@ const morgan = require('morgan');
 const express = require('express');
 const serverless = require('serverless-http');
 const mongoose = require('mongoose');
+const moment = require('moment');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const Mcrypto = require('@arcblock/mcrypto');
+const multibase = require('multibase');
+const { fromTokenToUnit } = require('@arcblock/forge-util');
+const { fromAddress } = require('@arcblock/forge-wallet');
+const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
+const { client, wallet, handlers } = require('../libs/auth');
+
+// Routes
+const loginAuth = require('../routes/auth/login');
+// const paymentAuth = require('../routes/auth/payment');
+// const checkinAuth = require('../routes/auth/checkin');
+const sessionRoutes = require('../routes/session');
+const paymentsRoutes = require('../routes/payments');
 
 console.log('env', JSON.stringify(process.env));
 
@@ -61,23 +75,52 @@ server.use(
 
 const router = express.Router();
 
-// eslint-disable-next-line global-require
-require('../routes')(router);
+router.get('/sha3', (req, res) => {
+  const source = Date.now();
+  res.json({
+    source,
+    hash: Mcrypto.Hasher.SHA3.hash256(utf8ToHex(source.toString())),
+  });
+});
 
-router.get('/api/routes', (req, res) => {
+router.get('/chainInfo', async (req, res) => {
+  const { info } = await client.getChainInfo();
+  res.json(info);
+});
+
+router.get('/wallet', (req, res) => {
+  res.json({
+    app: wallet,
+    user: fromAddress(wallet.address),
+    date: moment(new Date().toISOString())
+      .utc()
+      .format('YYYY-MM-DD'),
+    hex: bytesToHex(multibase.decode(wallet.address)),
+    bg: fromTokenToUnit(50).toString(),
+  });
+});
+
+handlers.attach(Object.assign({ app: router }, loginAuth));
+// handlers.attach(Object.assign({ app: router }, checkinAuth));
+// handlers.attach(Object.assign({ app: router }, paymentAuth));
+paymentsRoutes.init(router);
+sessionRoutes.init(router);
+
+router.get('/routes', (req, res) => {
   // eslint-disable-next-line no-underscore-dangle
   res.json(router._router.stack.filter(r => r.route).map(r => r.route.path));
 });
 
-router.get('/hello', (req, res) => {
-  res.send('hello world');
-});
-
-// CAUTION: be sure to change this if file renamed
 server.use('/.netlify/functions/app', router);
 
-server.all('*', (req, res) => {
-  res.send('404 Not Found');
+server.use((req, res) => {
+  res.send('404 NOT FOUND');
+});
+
+// eslint-disable-next-line no-unused-vars
+server.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 // Make it serverless
