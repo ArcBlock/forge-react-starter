@@ -47,7 +47,9 @@
     "mongoose": "5.4.23",
     "morgan": "^1.9.1",
     "multibase": "^0.6.0",
+    "netlify-lambda": "^1.4.7",
     "next": "^8.1.0",
+    "next-plugin-custom-babel-config": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -68,8 +70,6 @@
     "eslint-plugin-react": "^7.11.0",
     "husky": "^2.2.0",
     "lint-staged": "^8.1.6",
-    "netlify-lambda": "^1.4.7",
-    "next-plugin-custom-babel-config": "^1.0.2",
     "nodemon": "^1.19.0",
     "prettier": "^1.17.0",
     "webpack-node-externals": "^1.7.2"
