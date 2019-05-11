@@ -22,7 +22,7 @@ const { client, wallet, handlers } = require('../libs/auth');
 
 // Routes
 const loginAuth = require('../routes/auth/login');
-// const paymentAuth = require('../routes/auth/payment');
+const paymentAuth = require('../routes/auth/payment');
 const checkinAuth = require('../routes/auth/checkin');
 const sessionRoutes = require('../routes/session');
 const paymentsRoutes = require('../routes/payments');
@@ -102,7 +102,7 @@ router.get('/wallet', (req, res) => {
 
 handlers.attach(Object.assign({ app: router }, loginAuth));
 handlers.attach(Object.assign({ app: router }, checkinAuth));
-// handlers.attach(Object.assign({ app: router }, paymentAuth));
+handlers.attach(Object.assign({ app: router }, paymentAuth));
 paymentsRoutes.init(router);
 sessionRoutes.init(router);
 
