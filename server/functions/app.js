@@ -20,14 +20,12 @@ const { fromAddress } = require('@arcblock/forge-wallet');
 const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
 const { client, wallet, handlers } = require('../libs/auth');
 
-// Routes
+// Routes: due to limitations of netlify-lambda, we need to import all routes here
 const loginAuth = require('../routes/auth/login');
 const paymentAuth = require('../routes/auth/payment');
 const checkinAuth = require('../routes/auth/checkin');
 const sessionRoutes = require('../routes/session');
 const paymentsRoutes = require('../routes/payments');
-
-console.log('env', JSON.stringify(process.env));
 
 if (!process.env.MONGO_URI) {
   throw new Error('Cannot start application without process.env.MONGO_URI');
@@ -105,11 +103,6 @@ handlers.attach(Object.assign({ app: router }, checkinAuth));
 handlers.attach(Object.assign({ app: router }, paymentAuth));
 paymentsRoutes.init(router);
 sessionRoutes.init(router);
-
-router.get('/routes', (req, res) => {
-  // eslint-disable-next-line no-underscore-dangle
-  res.json(router._router.stack.filter(r => r.route).map(r => r.route.path));
-});
 
 server.use('/.netlify/functions/app', router);
 
