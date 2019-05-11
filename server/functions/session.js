@@ -15,6 +15,7 @@ const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
 const Mcrypto = require('@arcblock/mcrypto');
 const multibase = require('multibase');
+const { fromTokenToUnit } = require('@arcblock/forge-util');
 const { fromAddress } = require('@arcblock/forge-wallet');
 const { utf8ToHex, bytesToHex } = require('@arcblock/forge-util');
 const { client, wallet, handlers } = require('../libs/auth');
@@ -95,6 +96,7 @@ router.get('/wallet', (req, res) => {
       .utc()
       .format('YYYY-MM-DD'),
     hex: bytesToHex(multibase.decode(wallet.address)),
+    bg: fromTokenToUnit(50).toString(),
   });
 });
 

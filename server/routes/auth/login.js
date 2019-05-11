@@ -4,12 +4,10 @@ const { User } = require('../../models');
 module.exports = {
   action: 'login',
   claims: {
-    profile() {
-      return {
-        fields: ['fullName', 'email', 'phone'],
-        description: 'Please provide your email and name to continue',
-      };
-    },
+    profile: () => ({
+      fields: ['fullName', 'email', 'phone'],
+      description: 'Please provide your email and name to continue',
+    }),
   },
   onAuth: async ({ claims, did }) => {
     try {
