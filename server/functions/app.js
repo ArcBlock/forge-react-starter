@@ -23,7 +23,7 @@ const { client, wallet, handlers } = require('../libs/auth');
 // Routes
 const loginAuth = require('../routes/auth/login');
 // const paymentAuth = require('../routes/auth/payment');
-// const checkinAuth = require('../routes/auth/checkin');
+const checkinAuth = require('../routes/auth/checkin');
 const sessionRoutes = require('../routes/session');
 const paymentsRoutes = require('../routes/payments');
 
@@ -101,7 +101,7 @@ router.get('/wallet', (req, res) => {
 });
 
 handlers.attach(Object.assign({ app: router }, loginAuth));
-// handlers.attach(Object.assign({ app: router }, checkinAuth));
+handlers.attach(Object.assign({ app: router }, checkinAuth));
 // handlers.attach(Object.assign({ app: router }, paymentAuth));
 paymentsRoutes.init(router);
 sessionRoutes.init(router);
@@ -114,7 +114,7 @@ router.get('/routes', (req, res) => {
 server.use('/.netlify/functions/app', router);
 
 server.use((req, res) => {
-  res.send('404 NOT FOUND');
+  res.status(404).send('404 NOT FOUND');
 });
 
 // eslint-disable-next-line no-unused-vars
