@@ -108,7 +108,7 @@ BASE_URL="http://192.168.1.6:3030"
 
 ### How to upgrade `@arcblock/*` dependencies?
 
-Simple, just `rm yarn.lock`, then `yarn`, be sure to test the starter after upgrading.
+Simple, just update `package.json`, then `yarn`, be sure to test the starter after upgrading.
 
 ### How to deploy my application?
 
