@@ -1,3 +1,9 @@
+## 0.5.0 (May 17, 2019)
+
+- chore: upgrade forge sdk to v0.27.x
+- chore: upgrade react-forge to v0.5.7
+- chore: code refactor
+
 ## 0.4.2 (May 12, 2019)
 
 
@@ -23,5 +29,3 @@
 
 
 ## 0.2.0 (May 09, 2019)
-
-
