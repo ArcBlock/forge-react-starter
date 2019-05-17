@@ -19,6 +19,8 @@ const checkinAuth = require('../routes/auth/checkin');
 const sessionRoutes = require('../routes/session');
 const paymentsRoutes = require('../routes/payments');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 if (!process.env.MONGO_URI) {
   throw new Error('Cannot start application without process.env.MONGO_URI');
 }
@@ -46,10 +48,11 @@ server.use(
       'ms',
     ].join(' ');
 
-    if (process.env.NODE_ENV !== 'dev') {
+    if (isProduction) {
       // Log only in AWS context to get back function logs
       console.log(log);
     }
+
     return log;
   })
 );
@@ -74,7 +77,11 @@ sessionRoutes.init(router);
 // ------------------------------------------------------
 // This is required by netlify functions
 // ------------------------------------------------------
-server.use('/.netlify/functions/app', router);
+if (isProduction) {
+  server.use('/.netlify/functions/app', router);
+} else {
+  server.use(router);
+}
 
 server.use((req, res) => {
   res.status(404).send('404 NOT FOUND');
@@ -88,3 +95,4 @@ server.use((err, req, res, next) => {
 
 // Make it serverless
 exports.handler = serverless(server);
+exports.server = server;

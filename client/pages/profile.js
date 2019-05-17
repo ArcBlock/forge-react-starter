@@ -79,6 +79,7 @@ export default function ProfilePage() {
         {isOpen && (
           <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => setOpen()}>
             <Auth
+              responsive
               action="checkin"
               checkFn={api.get}
               onClose={() => setOpen()}

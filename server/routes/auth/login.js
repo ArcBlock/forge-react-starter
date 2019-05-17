@@ -1,12 +1,17 @@
 /* eslint-disable no-console */
 const { User } = require('../../models');
 
+const description = {
+  en: 'Sign this transaction to receive 25 TBA for test purpose',
+  zh: '签名该交易，你将获得 25 个测试用的 TBA',
+};
+
 module.exports = {
   action: 'login',
   claims: {
-    profile: () => ({
+    profile: ({ extraParams: { locale } }) => ({
       fields: ['fullName', 'email'],
-      description: 'Please provide your email and name to continue',
+      description: description[locale] || description.en,
     }),
   },
   onAuth: async ({ claims, did }) => {
@@ -33,7 +38,7 @@ module.exports = {
       console.error('login.onAuth.error', err);
     }
   },
-  onComplete: (req, { did }) =>
+  onComplete: ({ req, did }) =>
     // eslint-disable-next-line implicit-arrow-linebreak
     new Promise((resolve, reject) => {
       // TODO: old session info should be copied to new session

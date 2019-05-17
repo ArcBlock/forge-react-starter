@@ -5,10 +5,15 @@ const { fromAddress } = require('@arcblock/forge-wallet');
 const { Payment } = require('../../models');
 const { client, wallet } = require('../../libs/auth');
 
+const description = {
+  en: 'Please pay 5 TBA to unlock the secret document',
+  zh: '请支付 5 TAB 以解锁加密的文档',
+};
+
 module.exports = {
   action: 'payment',
   claims: {
-    signature: {
+    signature: ({ extraParams: { locale } }) => ({
       txType: 'TransferTx',
       txData: {
         itx: {
@@ -19,8 +24,8 @@ module.exports = {
           },
         },
       },
-      description: 'Please pay 100 TBA to unlock the secret document',
-    },
+      description: description[locale] || description.en,
+    }),
   },
   onAuth: async ({ claims, did }) => {
     console.log('pay.onAuth', { claims, did });
@@ -29,7 +34,7 @@ module.exports = {
       const tx = client.decodeTx(multibase.decode(claim.origin));
       const user = fromAddress(did);
 
-      const { hash } = await client.sendTransferTx({
+      const hash = await client.sendTransferTx({
         tx,
         wallet: user,
         signature: claim.sigHex,
@@ -39,6 +44,8 @@ module.exports = {
         did,
         hash,
         status: 'confirmed',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       });
 
       await payment.save();
@@ -47,7 +54,7 @@ module.exports = {
       console.error('pay.onAuth.error', err);
     }
   },
-  onComplete: (req, { did }) => {
+  onComplete: ({ did }) => {
     console.log('pay.onComplete', { did });
   },
 };
