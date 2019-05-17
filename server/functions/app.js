@@ -79,19 +79,18 @@ sessionRoutes.init(router);
 // ------------------------------------------------------
 if (isProduction) {
   server.use('/.netlify/functions/app', router);
+  server.use((req, res) => {
+    res.status(404).send('404 NOT FOUND');
+  });
+
+  // eslint-disable-next-line no-unused-vars
+  server.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+  });
 } else {
   server.use(router);
 }
-
-server.use((req, res) => {
-  res.status(404).send('404 NOT FOUND');
-});
-
-// eslint-disable-next-line no-unused-vars
-server.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
 
 // Make it serverless
 exports.handler = serverless(server);
