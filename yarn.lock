@@ -15,10 +15,10 @@
   resolved "https://registry.npmjs.org/@arcblock/did-auth-storage/-/did-auth-storage-0.21.1.tgz#efcc0c5eeb67bee6cdb756c7bd7aae1eb6f1ddc7"
   integrity sha512-WBrkw7CKg1ZCUtgflaLc0o22OJKlfRkwRUqyi4FtowsoPBjRQ3Djh5gRH3oI6c8NDVDOq0pOQg+2uJNgEfTG5Q==
 
-"@arcblock/did-auth@^0.27.4":
-  version "0.27.4"
-  resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.27.4.tgz#e81ab6b9d9c3744e40113ad733a6c4b9f05c7c72"
-  integrity sha512-1SJRHOfC2tAIkd9d+7otFTm024AVvgKELD8ixr6vxDLv5VeEEzi70sNIOPdMZO0SBXdJg3A8kz6XOwRuYyFKPw==
+"@arcblock/did-auth@^0.27.5":
+  version "0.27.5"
+  resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.27.5.tgz#3e46eba408098996fb778e322090cfd7825595af"
+  integrity sha512-MTERmM+VJCZpqQm+oVW7O8E1W8Gtw3dvcBsy6DJF7WQNZ7gArewIuMBu5VHrnhiKJFPMiIYc2YzruObB1HFI2A==
   dependencies:
     "@arcblock/did" "^0.27.0"
     "@arcblock/forge-util" "^0.27.0"
@@ -108,10 +108,10 @@
     randombytes "^2.0.6"
     tweetnacl "^1.0.1"
 
-"@arcblock/react-forge@^0.5.10":
-  version "0.5.10"
-  resolved "https://registry.npmjs.org/@arcblock/react-forge/-/react-forge-0.5.10.tgz#542a2fc42062000b0e710aedbabcc0100c221455"
-  integrity sha512-xKMAeATCl4GuuzVf0+j0QKy/hd3wJsRNZ0BWerF3W+vUGOCxt2Emq5fH9PIfpQ1fQuAmq/qm+Sy3Ac17FWICoQ==
+"@arcblock/react-forge@^0.5.11":
+  version "0.5.11"
+  resolved "https://registry.npmjs.org/@arcblock/react-forge/-/react-forge-0.5.11.tgz#b049fc01b7b1bec52fabbe5576cfe309151ae303"
+  integrity sha512-AYq1xkb/YGkpd7FQcPmJPhz7KFG612UGfIznrHAH9brsjzMq5/m5ATweQYcf0eijUBhhoOmbySJrXK4r4bUTaQ==
   dependencies:
     "@arcblock/react-hooks" "^0.5.0"
     qrcode.react "^0.9.3"
