@@ -1,6 +1,6 @@
 {
   "name": "forge-react-starter",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "main": "app.js",
   "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
   "license": "MIT",
