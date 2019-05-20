@@ -108,10 +108,10 @@
     randombytes "^2.0.6"
     tweetnacl "^1.0.1"
 
-"@arcblock/react-forge@^0.5.11":
-  version "0.5.11"
-  resolved "https://registry.npmjs.org/@arcblock/react-forge/-/react-forge-0.5.11.tgz#b049fc01b7b1bec52fabbe5576cfe309151ae303"
-  integrity sha512-AYq1xkb/YGkpd7FQcPmJPhz7KFG612UGfIznrHAH9brsjzMq5/m5ATweQYcf0eijUBhhoOmbySJrXK4r4bUTaQ==
+"@arcblock/react-forge@^0.5.12":
+  version "0.5.12"
+  resolved "https://registry.npmjs.org/@arcblock/react-forge/-/react-forge-0.5.12.tgz#6152131e99a54b591630ee805b88e60f41b49683"
+  integrity sha512-jynnTwH5qqBmbaDSdKhS/TVcE5796sx2Z3xS5NJYYfsOdL0T7gB8+L56o8JhcwVXQLF3eEvXXeofF8GuLAvAwQ==
   dependencies:
     "@arcblock/react-hooks" "^0.5.0"
     qrcode.react "^0.9.3"
