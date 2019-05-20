@@ -9,8 +9,8 @@
     "build": "next build client",
     "clean": "rm -rf client/dist server/dist",
     "export": "next build client && next export client -o client/dist",
-    "lambda:netlify": "netlify-lambda build --config config/webpack.functions.js server/functions",
-    "lambda:serve": "netlify-lambda serve --config config/webpack.functions.js server/functions",
+    "lambda:netlify": "netlify-lambda build server/functions",
+    "lambda:serve": "netlify-lambda serve server/functions",
     "netlify": "npm run clean && npm run export && npm run lambda:netlify",
     "start": "nodemon app.js -w server -w app.js"
   },
