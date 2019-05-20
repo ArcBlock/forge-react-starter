@@ -25,6 +25,7 @@ Forge SDK libraries included in the starter project:
 
 Other javascript project goodies:
 
+- `jwt`: token based authentication
 - `eslint`: for consistent coding style
 - `prettier`: for consistent code formatting
 - `husky`: and `lint-staged` for prepush and precommit hooks
