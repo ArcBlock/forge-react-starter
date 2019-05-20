@@ -1,5 +1,7 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-console */
 const { User } = require('../../models');
+const { login } = require('../../libs/jwt');
 
 const description = {
   en: 'Sign this transaction to receive 25 TBA for test purpose',
@@ -14,7 +16,7 @@ module.exports = {
       description: description[locale] || description.en,
     }),
   },
-  onAuth: async ({ claims, did }) => {
+  onAuth: async ({ claims, did, token, storage }) => {
     try {
       const profile = claims.find(x => x.type === 'profile');
       const exist = await User.findOne({ did });
@@ -34,29 +36,13 @@ module.exports = {
         });
         await user.save();
       }
+
+      // Generate new session token that client can save to localStorage
+      const sessionToken = await login(did);
+      await storage.update(token, { did, sessionToken });
+      console.error('login.onAuth.login', { did, sessionToken });
     } catch (err) {
       console.error('login.onAuth.error', err);
     }
   },
-  onComplete: ({ req, did }) =>
-    // eslint-disable-next-line implicit-arrow-linebreak
-    new Promise((resolve, reject) => {
-      // TODO: old session info should be copied to new session
-      req.session.regenerate(async err => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        const user = await User.findOne({ did });
-        if (!user) {
-          reject(new Error(`User with ${did} did does not exist`));
-          return;
-        }
-
-        // Populate user to session
-        req.session.user = user.toObject();
-        resolve(req.session);
-      });
-    }),
 };

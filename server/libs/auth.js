@@ -26,8 +26,7 @@ const authenticator = new Authenticator({
     copyright: 'https://www.arcblock.io',
     decimals: 16,
     name: 'Forge React Starter',
-    subtitle: 'Starter application that runs on forge powered chain',
-    description: 'Which demonstrates login/checkin/payment issue',
+    description: 'Starter application that runs on forge powered chain',
     icon: 'https://arcblock.oss-cn-beijing.aliyuncs.com/images/react.png',
     path: 'https://abtwallet.io/i/',
     publisher: `did:abt:${wallet.address}`,
@@ -36,7 +35,7 @@ const authenticator = new Authenticator({
 
 const handlers = new Handlers({
   authenticator,
-  tokenGenerator: req => req.sessionID + Date.now(),
+  tokenGenerator: () => Date.now().toString(),
   tokenStorage: new MongoStorage({
     url: process.env.MONGO_URI,
   }),
