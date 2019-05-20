@@ -15,6 +15,7 @@ import UserAvatar from '@arcblock/react-forge/lib/Avatar';
 
 import useSession from '../hooks/session';
 import api from '../libs/api';
+import { setToken } from '../libs/auth';
 
 export default function Header() {
   const session = useSession();
@@ -32,6 +33,13 @@ export default function Header() {
       }
     }
   }, [session]);
+
+  const onLogin = async result => {
+    if (result.sessionToken) {
+      setToken(result.sessionToken);
+    }
+    window.location.href = '/profile';
+  };
 
   return (
     <Nav>
@@ -79,7 +87,7 @@ export default function Header() {
             action="login"
             checkFn={api.get}
             onClose={() => toggle()}
-            onSuccess={() => (window.location.href = '/profile')}
+            onSuccess={onLogin}
             messages={{
               title: 'login',
               scan: 'Scan QR code with ABT Wallet',
