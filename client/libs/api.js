@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getToken } from './session';
+import { getToken } from './auth';
 
 axios.defaults.baseURL = process.env.apiPrefix || '';
 axios.defaults.timeout = 200000;

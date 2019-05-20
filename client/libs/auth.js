@@ -21,3 +21,14 @@ export function getToken() {
 
   return window.localStorage.getItem(storageKey);
 }
+
+export function removeToken() {
+  if (typeof window === 'undefined') {
+    return undefined;
+  }
+  if (typeof window.localStorage === 'undefined') {
+    return undefined;
+  }
+
+  return window.localStorage.removeItem(storageKey);
+}

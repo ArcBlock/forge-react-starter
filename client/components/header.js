@@ -15,7 +15,7 @@ import UserAvatar from '@arcblock/react-forge/lib/Avatar';
 
 import useSession from '../hooks/session';
 import api from '../libs/api';
-import { setToken } from '../libs/session';
+import { setToken } from '../libs/auth';
 
 export default function Header() {
   const session = useSession();
