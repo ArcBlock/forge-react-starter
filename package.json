@@ -3,7 +3,14 @@
   "version": "0.7.0",
   "main": "starter.config.js",
   "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
-  "license": "MIT",
+  "license": "Apache 2.0",
+  "keywords": [
+    "arcblock",
+    "forge",
+    "starter",
+    "react",
+    "javascript"
+  ],
   "scripts": {
     "lint": "eslint server client app.js",
     "build": "next build client",
@@ -76,6 +83,7 @@
     "lint-staged": "^8.1.6",
     "nodemon": "^1.19.0",
     "prettier": "^1.17.0",
+    "set-npm-auth-token-for-ci": "^2.0.13",
     "webpack-node-externals": "^1.7.2"
   },
   "husky": {
