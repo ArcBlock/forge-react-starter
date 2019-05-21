@@ -37,6 +37,8 @@ export default function ProfilePage() {
         token: chain.token,
       };
     }
+
+    return null;
   }, [state.value]);
 
   const onLogout = () => {
