@@ -14,6 +14,7 @@ travis-init: install dep
 
 install:
 	@echo "Install software required for this repo..."
+	@npm install -g yarn
 
 dep:
 	@echo "Install dependencies required for this repo..."
@@ -46,11 +47,6 @@ travis-deploy:
 
 clean:
 	@echo "Cleaning the build..."
-
-watch:
-	@make build
-	@echo "Watching templates and slides changes..."
-	@fswatch -o packages/ | xargs -n1 -I{} make build
 
 run:
 	@echo "Running the software..."

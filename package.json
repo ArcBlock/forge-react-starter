@@ -1,16 +1,23 @@
 {
   "name": "forge-react-starter",
-  "version": "0.6.0",
-  "main": "app.js",
+  "version": "0.7.0",
+  "main": "starter.config.js",
   "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
-  "license": "MIT",
+  "license": "Apache 2.0",
+  "keywords": [
+    "arcblock",
+    "forge",
+    "starter",
+    "react",
+    "javascript"
+  ],
   "scripts": {
     "lint": "eslint server client app.js",
     "build": "next build client",
     "clean": "rm -rf client/dist server/dist",
     "export": "next build client && next export client -o client/dist",
-    "lambda:netlify": "netlify-lambda build --config config/webpack.functions.js server/functions",
-    "lambda:serve": "netlify-lambda serve --config config/webpack.functions.js server/functions",
+    "lambda:netlify": "netlify-lambda build server/functions",
+    "lambda:serve": "netlify-lambda serve server/functions",
     "netlify": "npm run clean && npm run export && npm run lambda:netlify",
     "start": "nodemon app.js -w server -w app.js"
   },
@@ -36,13 +43,16 @@
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
     "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "express-bearer-token": "^2.4.0",
+    "ip": "^1.1.5",
     "jsonwebtoken": "^8.5.1",
+    "jss": "^9.8.7",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "mongoose": "5.4.23",
@@ -58,6 +68,7 @@
     "react-jss": "^8.6.1",
     "react-use": "^8.4.0",
     "serverless-http": "^2.0.1",
+    "shelljs": "^0.8.3",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
@@ -73,6 +84,7 @@
     "lint-staged": "^8.1.6",
     "nodemon": "^1.19.0",
     "prettier": "^1.17.0",
+    "set-npm-auth-token-for-ci": "^2.0.13",
     "webpack-node-externals": "^1.7.2"
   },
   "husky": {
