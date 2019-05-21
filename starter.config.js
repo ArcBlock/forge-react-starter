@@ -1,3 +1,9 @@
+/**
+ * @fileOverview Spec for forge-react-starter, can be used as a template to setup a new starter
+ *
+ * @requires @arcblock/forge-wallet
+ */
+
 /* eslint-disable import/order */
 /* eslint-disable no-console */
 /* eslint-disable object-curly-newline */
@@ -53,12 +59,58 @@ const questions = [
 ];
 
 module.exports = {
+  /**
+   * Set starter version
+   * @variable
+   * @public
+   */
   name,
+
+  /**
+   * Set starter version
+   * @variable
+   * @public
+   */
   version,
-  questions,
+
+  /**
+   * Set default parameters for creating project from this starter
+   * Should set defaults for all questions declared in `questions` array
+   * @optional
+   * @variable
+   * @public
+   */
   defaults,
+
+  /**
+   * List of questions used by inquire to collect parameters
+   * @optional
+   * @variable
+   * @public
+   */
+  questions,
+
+  /**
+   * List of files/folders to exclude form the starter folder when creating new projects
+   * @variable
+   * @public
+   */
   blacklist: [__filename],
 
+  /**
+   * On project folder created and files synced
+   * You can create new files/modifying existing files in the project folder
+   *
+   * @param {object} config - project creating config
+   * @param {string} config.targetDir - the project folder
+   * @param {string} config.chainHost - the graphql endpoint the application running on
+   * @param {string} config.chainId - the chainId of the application running on
+   * @param {GraphQLClient} config.client - GraphQLClient instance that can be used to send request to the chain
+   * @param {object} config.symbols - ui elements that can be used to print logs
+   * @param {string} config.__starter__ - checkout `answers` for other collected parameters
+   * @function
+   * @public
+   */
   async onConfigured(config) {
     const { chainHost, chainId, targetDir, appName, appPort, mongoUri, client, symbols } = config;
     const ipAddress = ip.address();
@@ -100,7 +152,16 @@ BASE_URL="http://${ipAddress}:${appPort}"`;
     console.log(`${symbols.success} application config generated ${configPath}`);
   },
 
-  // Run npm install
+  /**
+   * On project created, files set
+   * You can install dependencies for the project in this hook
+   *
+   * @param {object} config - project creating config
+   * @param {string} config.targetDir - the project folder
+   * @param {object} config.symbols - ui elements that can be used to print logs
+   * @function
+   * @public
+   */
   onCreated(config) {
     const { targetDir, symbols } = config;
     const pm = shell.which('yarn') ? 'yarn' : 'npm';
@@ -108,10 +169,22 @@ BASE_URL="http://${ipAddress}:${appPort}"`;
     execSync(`cd ${targetDir} && ${pm} install`, { stdio: [0, 1, 2] });
   },
 
+  /**
+   * On project ready to run
+   * You can print basic steps for users to start the application
+   *
+   * @param {object} config - project creating config
+   * @param {string} config.targetDir - the project folder
+   * @param {object} config.symbols - ui elements that can be used to print logs
+   * @function
+   * @public
+   */
   onComplete(config) {
     const { targetDir } = config;
     const pm = shell.which('yarn') ? 'yarn' : 'npm';
+    shell.echo('');
     shell.echo(chalk.cyan(`cd ${targetDir}`));
     shell.echo(chalk.cyan(`${pm} start`));
+    shell.echo('');
   },
 };
