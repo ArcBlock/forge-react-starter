@@ -28,11 +28,11 @@
     ]
   },
   "dependencies": {
-    "@arcblock/did": "^0.27.0",
-    "@arcblock/did-auth": "^0.27.5",
+    "@arcblock/did": "^0.27.6",
+    "@arcblock/did-auth": "^0.27.9",
     "@arcblock/did-auth-storage-mongo": "0.21.1",
     "@arcblock/forge-util": "^0.27.0",
-    "@arcblock/forge-wallet": "^0.27.0",
+    "@arcblock/forge-wallet": "^0.27.6",
     "@arcblock/graphql-client": "^0.27.0",
     "@arcblock/mcrypto": "^0.27.0",
     "@arcblock/react-forge": "^0.5.12",

@@ -39,6 +39,8 @@ module.exports = {
         signature: claim.sigHex,
       });
       console.log('poke.onAuth', hash);
+
+      return { hash };
     } catch (err) {
       console.error('poke.onAuth.error', err);
       const errors = {

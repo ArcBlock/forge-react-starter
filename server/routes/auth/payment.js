@@ -50,6 +50,8 @@ module.exports = {
 
       await payment.save();
       console.log('pay.onAuth', hash);
+
+      return { hash };
     } catch (err) {
       console.error('pay.onAuth.error', err);
     }

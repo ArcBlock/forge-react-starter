@@ -15,14 +15,14 @@
   resolved "https://registry.npmjs.org/@arcblock/did-auth-storage/-/did-auth-storage-0.21.1.tgz#efcc0c5eeb67bee6cdb756c7bd7aae1eb6f1ddc7"
   integrity sha512-WBrkw7CKg1ZCUtgflaLc0o22OJKlfRkwRUqyi4FtowsoPBjRQ3Djh5gRH3oI6c8NDVDOq0pOQg+2uJNgEfTG5Q==
 
-"@arcblock/did-auth@^0.27.5":
-  version "0.27.5"
-  resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.27.5.tgz#3e46eba408098996fb778e322090cfd7825595af"
-  integrity sha512-MTERmM+VJCZpqQm+oVW7O8E1W8Gtw3dvcBsy6DJF7WQNZ7gArewIuMBu5VHrnhiKJFPMiIYc2YzruObB1HFI2A==
+"@arcblock/did-auth@^0.27.9":
+  version "0.27.9"
+  resolved "https://registry.npmjs.org/@arcblock/did-auth/-/did-auth-0.27.9.tgz#ec444f5cb3748932a8d8f9bb84882e3e6ef1bda6"
+  integrity sha512-Yhm6yyfNWhCTlUCiA5gSAt2GK5wXN0axbZgdJNxRtmIQIHpqAcdhUO1LeBANo83W+k6W0/Nz9aIPaQ3tz4xCrw==
   dependencies:
-    "@arcblock/did" "^0.27.0"
+    "@arcblock/did" "^0.27.6"
     "@arcblock/forge-util" "^0.27.0"
-    "@arcblock/forge-wallet" "^0.27.0"
+    "@arcblock/forge-wallet" "^0.27.6"
     "@arcblock/mcrypto" "^0.27.0"
     debug "^4.1.1"
     multibase "^0.6.0"
@@ -31,6 +31,19 @@
   version "0.27.0"
   resolved "https://registry.npmjs.org/@arcblock/did/-/did-0.27.0.tgz#af12e6ead9341fa18b9fcafd1b529195ba910d19"
   integrity sha512-WUcpy+2f/K7Oujvpqi2kIkLbq/is/pGCAEClxGORV4/G4LSe9U7/TOFsRZOPEXVVkOzKPcRp06o0Yn43PitbZw==
+  dependencies:
+    "@arcblock/forge-util" "^0.27.0"
+    "@arcblock/mcrypto" "^0.27.0"
+    base64-url "^2.2.0"
+    debug "^4.1.1"
+    json-stable-stringify "^1.0.1"
+    lodash "^4.17.11"
+    multibase "^0.6.0"
+
+"@arcblock/did@^0.27.6":
+  version "0.27.6"
+  resolved "https://registry.npmjs.org/@arcblock/did/-/did-0.27.6.tgz#eceb43f66f9904f1421d5f86d735c3caff272977"
+  integrity sha512-vkqoPY0C/Kf9WhIEci/eklInN8oi7/YpnZyCjnzpd1W8sB4n8wsAiXLhTtdMd5yGamHTb/FZXFuuVtsetmAUMw==
   dependencies:
     "@arcblock/forge-util" "^0.27.0"
     "@arcblock/mcrypto" "^0.27.0"
@@ -75,6 +88,14 @@
   integrity sha512-5jKdaQSk/zSnzU2r12/kl7gnh7EVsFFm4GuNC3KFMFFtQFmipdSwa1npsmyUGF6EX9/2aqLxQ9HQ6OH4sQp44Q==
   dependencies:
     "@arcblock/did" "^0.27.0"
+    "@arcblock/mcrypto" "^0.27.0"
+
+"@arcblock/forge-wallet@^0.27.6":
+  version "0.27.6"
+  resolved "https://registry.npmjs.org/@arcblock/forge-wallet/-/forge-wallet-0.27.6.tgz#02a65b0e116da2d42d3cb1809db1395e1542544d"
+  integrity sha512-dpAHV12897JaOxFtSBfGZiUGNHRAPyG56YJcmuO8DL3BTCi4GTwDUypvUikJN9YgTEimq8TzIL5bx4ByjQBoFA==
+  dependencies:
+    "@arcblock/did" "^0.27.6"
     "@arcblock/mcrypto" "^0.27.0"
 
 "@arcblock/graphql-client@^0.27.0":
