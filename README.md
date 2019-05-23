@@ -102,7 +102,7 @@ APP_SK="0xd8ee2e2b73e0f3d7b7c5d53"
 APP_ID="zNKtrS7etp2WQYnbVtknbDrVa23Q3eycdcDw"
 BASE_URL="http://192.168.1.6:3030"
 APP_TOKEN_SECRET="5bd972379d6bdd0bd4badf49b8944994f7e2c4d3bab03c3d"
-APP_TOKEN_TTL=3600
+APP_TOKEN_TTL="1d"
 ```
 
 > Caution: `.env` contains very sensitive info such as Application wallet secret key, PLEASE DO NOT COMMIT `.env` FILE
