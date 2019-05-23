@@ -33,7 +33,7 @@ module.exports = {
       const wallet = fromAddress(did);
       console.log('poke.onAuth.payload', { tx, claim });
 
-      const hash = await client.sendTransferTx({
+      const hash = await client.sendPokeTx({
         tx,
         wallet,
         signature: claim.sigHex,
