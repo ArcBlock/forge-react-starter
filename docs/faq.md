@@ -51,7 +51,7 @@ Currently no test toolkit integrated, will do soon!
 
 ## How to debug the application?
 
-Many forge sdk libraries can output runtime internal states, when something goes wrong, restart with `DEBUG=@arcblock/* yarn start`
+Many forge sdk libraries can output runtime internal states, when something goes wrong, restart with `DEBUG=@arcblock/*,forge-react-starter yarn start`
 
 ## How to deploy the application?
 
