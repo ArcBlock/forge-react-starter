@@ -66,7 +66,7 @@ server.use((req, res, next) => {
 
   decode(req.token)
     .then(user => {
-      req.session = { user };
+      req.user = user;
       next();
     })
     .catch(err => {

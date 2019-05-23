@@ -1,12 +1,12 @@
 module.exports = {
   init(app) {
     app.get('/api/session', (req, res) => {
-      res.json(req.session || {});
+      res.json({ user: req.user });
     });
 
     app.post('/api/logout', (req, res) => {
-      req.session.user = null;
-      res.json(req.session);
+      req.user = null;
+      res.json({ user: null });
     });
   },
 };

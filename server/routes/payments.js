@@ -5,8 +5,8 @@ module.exports = {
   init(app) {
     app.get('/api/payments', async (req, res) => {
       try {
-        if (req.session.user) {
-          const payment = await Payment.findOne({ did: req.session.user.did });
+        if (req.user) {
+          const payment = await Payment.findOne({ did: req.user.did });
           res.json(payment ? payment.toObject() : null);
         } else {
           res.json([]);
