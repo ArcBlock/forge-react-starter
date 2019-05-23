@@ -21,6 +21,7 @@ const debug = require('debug')(name);
 
 const defaults = {
   appName: 'Forge React Starter',
+  appDescription: 'React starter application that runs on forge powered chain',
   appPort: 3030,
   mongoUri: 'mongodb://127.0.0.1:27017/forge-react-starter',
 };
@@ -33,6 +34,16 @@ const questions = [
     default: defaults.appName,
     validate: input => {
       if (!input) return 'Application name should not be empty';
+      return true;
+    },
+  },
+  {
+    type: 'text',
+    name: 'appDescription',
+    message: 'Application description:',
+    default: defaults.appDescription,
+    validate: input => {
+      if (!input) return 'Application descripiton should not be empty';
       return true;
     },
   },
@@ -112,7 +123,7 @@ module.exports = {
    * @public
    */
   async onConfigured(config) {
-    const { chainHost, chainId, targetDir, appName, appPort, mongoUri, client, symbols } = config;
+    const { chainHost, chainId, targetDir, appName, appDescription, appPort, mongoUri, client, symbols } = config;
     const ipAddress = ip.address();
 
     // Declare application on chain
@@ -142,6 +153,7 @@ module.exports = {
 CHAIN_ID="${chainId}"
 CHAIN_HOST="${chainHost.replace('127.0.0.1', ipAddress).replace('localhost', ipAddress)}"
 APP_NAME="${appName}"
+APP_DESCRIPTION="${appDescription}"
 APP_PORT="${appPort}"
 APP_SK="${wallet.secretKey}"
 APP_ID="${wallet.toAddress()}"
