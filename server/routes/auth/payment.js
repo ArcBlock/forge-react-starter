@@ -56,7 +56,4 @@ module.exports = {
       console.error('pay.onAuth.error', err);
     }
   },
-  onComplete: ({ did }) => {
-    console.log('pay.onComplete', { did });
-  },
 };

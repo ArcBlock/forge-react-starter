@@ -18,7 +18,7 @@ import Layout from '../components/layout';
 import useSession from '../hooks/session';
 import forge from '../libs/forge';
 import api from '../libs/api';
-import { removeToken } from '../libs/auth';
+import { removeToken, onAuthError } from '../libs/auth';
 
 export default function ProfilePage() {
   const state = useSession();
@@ -85,6 +85,7 @@ export default function ProfilePage() {
               responsive
               action="checkin"
               checkFn={api.get}
+              onError={onAuthError}
               onClose={() => setOpen()}
               onSuccess={() => window.location.reload()}
               messages={{

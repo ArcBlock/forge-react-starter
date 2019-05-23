@@ -32,3 +32,12 @@ export function removeToken() {
 
   return window.localStorage.removeItem(storageKey);
 }
+
+export function onAuthError(err) {
+  if (err.code === 403) {
+    setTimeout(() => {
+      removeToken();
+      window.location.href = '/?openLogin=true';
+    }, 3000);
+  }
+}

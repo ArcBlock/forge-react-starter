@@ -12,6 +12,7 @@ import Avatar from '@arcblock/react-forge/lib/Avatar';
 
 import Layout from '../components/layout';
 import api from '../libs/api';
+import { onAuthError } from '../libs/auth';
 
 async function fetchStatus() {
   const [{ data: payment }, { data: session }] = await Promise.all([api.get('/api/payments'), api.get('/api/session')]);
@@ -54,6 +55,7 @@ export default function PaymentPage() {
               responsive
               action="payment"
               checkFn={api.get}
+              onError={onAuthError}
               onClose={() => toggle()}
               onSuccess={() => window.location.reload()}
               messages={{

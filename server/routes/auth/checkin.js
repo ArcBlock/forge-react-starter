@@ -50,7 +50,4 @@ module.exports = {
       throw new Error(errors[locale] || errors.en);
     }
   },
-  onComplete: ({ did }) => {
-    console.log('poke.onComplete', { did });
-  },
 };
