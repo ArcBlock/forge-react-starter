@@ -39,6 +39,9 @@ function decode(token) {
       if (!user) {
         return reject(new Error('Invalid jwt token: invalid uid'));
       }
+      if (user.did !== did) {
+        return reject(new Error('Invalid jwt token: invalid did and uid pair'));
+      }
 
       return resolve(user.toJSON());
     });
