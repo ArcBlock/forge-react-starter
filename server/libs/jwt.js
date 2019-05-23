@@ -8,7 +8,8 @@ if (!process.env.APP_TOKEN_SECRET) {
 }
 
 const secret = process.env.APP_TOKEN_SECRET;
-const ttl = Number(process.env.APP_TOKEN_TTL) ? Number(process.env.APP_TOKEN_TTL) : 120;
+// @link checkout https://github.com/auth0/node-jsonwebtoken#usage for ttl syntax
+const ttl = Number(process.env.APP_TOKEN_TTL) ? Number(process.env.APP_TOKEN_TTL) : '1d';
 
 async function login(did) {
   const user = await User.findOne({ did });

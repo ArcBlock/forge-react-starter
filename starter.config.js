@@ -146,7 +146,7 @@ APP_PORT="${appPort}"
 APP_SK="${wallet.secretKey}"
 APP_ID="${wallet.toAddress()}"
 APP_TOKEN_SECRET="${wallet.publicKey.slice(16)}"
-APP_TTL=3600
+APP_TOKEN_TTL="1d"
 BASE_URL="http://${ipAddress}:${appPort}"`;
     fs.writeFileSync(configPath, configContent);
     console.log(`${symbols.success} application config generated ${configPath}`);
