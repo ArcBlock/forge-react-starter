@@ -27,6 +27,7 @@ module.exports = {
       description: description[locale] || description.en,
     }),
   },
+  // eslint-disable-next-line consistent-return
   onAuth: async ({ claims, did }) => {
     console.log('pay.onAuth', { claims, did });
     try {
