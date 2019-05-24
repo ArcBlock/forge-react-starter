@@ -52,7 +52,7 @@ module.exports = {
       await payment.save();
       console.log('pay.onAuth', hash);
 
-      return { hash };
+      return { hash, tx: claim.origin };
     } catch (err) {
       console.error('pay.onAuth.error', err);
     }

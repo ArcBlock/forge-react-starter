@@ -40,7 +40,7 @@ module.exports = {
       });
       console.log('poke.onAuth', hash);
 
-      return { hash };
+      return { hash, tx: claim.origin };
     } catch (err) {
       console.error('poke.onAuth.error', err);
       const errors = {
