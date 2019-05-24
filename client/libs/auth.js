@@ -1,36 +1,28 @@
-const storageKey = 'sid';
+import store from 'store/dist/store.modern';
+
+const storageKey = 'login_token';
 
 export function setToken(token) {
   if (typeof window === 'undefined') {
     return undefined;
   }
-  if (typeof window.localStorage === 'undefined') {
-    return undefined;
-  }
-
-  return window.localStorage.setItem(storageKey, token);
+  return store.set(storageKey, token);
 }
 
 export function getToken() {
   if (typeof window === 'undefined') {
     return undefined;
   }
-  if (typeof window.localStorage === 'undefined') {
-    return undefined;
-  }
 
-  return window.localStorage.getItem(storageKey);
+  return store.get(storageKey);
 }
 
 export function removeToken() {
   if (typeof window === 'undefined') {
     return undefined;
   }
-  if (typeof window.localStorage === 'undefined') {
-    return undefined;
-  }
 
-  return window.localStorage.removeItem(storageKey);
+  return store.remove(storageKey);
 }
 
 export function onAuthError(err) {
