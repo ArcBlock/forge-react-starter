@@ -12,7 +12,7 @@ const bearerToken = require('express-bearer-token');
 // Routes: due to limitations of netlify functions, we need to import routes here
 // ------------------------------------------------------------------------------
 const { decode } = require('../libs/jwt');
-const { handlers } = require('../libs/auth');
+const { handlers, client, wallet } = require('../libs/auth');
 const loginAuth = require('../routes/auth/login');
 const paymentAuth = require('../routes/auth/payment');
 const checkinAuth = require('../routes/auth/checkin');
@@ -81,6 +81,28 @@ handlers.attach(Object.assign({ app: router }, checkinAuth));
 handlers.attach(Object.assign({ app: router }, paymentAuth));
 paymentsRoutes.init(router);
 sessionRoutes.init(router);
+
+// Check for application account
+client
+  .getAccountState({ address: wallet.address })
+  .then(res => {
+    if (!res.state) {
+      console.log('\n----------');
+      console.error('Application account not declared on chain, abort!');
+      console.error('Please run `node tools/declare.js` then start the application again');
+      console.log('----------\n');
+      process.exit(1);
+    } else {
+      console.error('Application account declared on chain');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    console.log('\n----------');
+    console.error('Application account check failed, abort!');
+    console.log('----------\n');
+    process.exit(1);
+  });
 
 // ------------------------------------------------------
 // This is required by netlify functions
