@@ -6,7 +6,7 @@ import useToggle from 'react-use/lib/useToggle';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Dialog from '@material-ui/core/Dialog';
+import Grid from '@material-ui/core/Grid';
 import Auth from '@arcblock/react-forge/lib/Auth';
 import Avatar from '@arcblock/react-forge/lib/Avatar';
 
@@ -49,75 +49,75 @@ export default function PaymentPage() {
   return (
     <Layout title="Payment">
       <Main>
-        {open && (
-          <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => toggle()}>
-            <Auth
-              responsive
-              action="payment"
-              checkFn={api.get}
-              onError={onAuthError}
-              onClose={() => toggle()}
-              onSuccess={() => window.location.reload()}
-              messages={{
-                title: 'Payment Required',
-                scan: 'Pay 5 TBA to view secret documented',
-                confirm: 'Confirm payment on your ABT Wallet',
-                success: 'You have successfully paid!',
-              }}
-            />
-          </Dialog>
-        )}
-        <div className="avatar">
-          <Avatar size={240} did={state.value.session.user.did} />
-          <Button color="secondary" disabled={state.value.payment} variant="contained" onClick={() => toggle()}>
-            {state.value.payment ? 'Already Paid' : 'Make Payment'}
-          </Button>
-          <Button color="primary" variant="outlined" href="/profile" style={{ marginTop: '30px' }}>
-            My Profile
-          </Button>
-        </div>
-        <div className="meta">
-          <Typography component="h3" variant="h4">
-            Secret Document
-          </Typography>
-          <div className={`document ${state.value.payment ? 'document--unlocked' : ''}`}>
-            <Typography component="div" variant="body1" className="document__body">
-              What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-              also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-              1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              <br />
-              <br />
-              What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-              also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-              1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              <br />
-              <br />
-              What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-              also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-              1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              <br />
-              <br />
-              What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-              also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-              1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              <br />
-              <br />
+        <Grid container spacing={40}>
+          <Grid item xs={12} md={3} className="avatar">
+            <Avatar size={240} did={state.value.session.user.did} />
+            <Button color="secondary" disabled={state.value.payment} variant="contained" onClick={() => toggle()}>
+              {state.value.payment ? 'Already Paid' : 'Make Payment'}
+            </Button>
+            <Button color="primary" variant="outlined" href="/profile" style={{ marginTop: '30px' }}>
+              My Profile
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={8} className="meta">
+            <Typography component="h3" variant="h4">
+              Secret Document
             </Typography>
-          </div>
-        </div>
+            <div className={`document ${state.value.payment ? 'document--unlocked' : ''}`}>
+              <Typography component="div" variant="body1" className="document__body">
+                What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <br />
+                <br />
+                What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <br />
+                <br />
+                What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <br />
+                <br />
+                What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <br />
+                <br />
+              </Typography>
+            </div>
+          </Grid>
+        </Grid>
       </Main>
+      {open && (
+        <Auth
+          responsive
+          action="payment"
+          checkFn={api.get}
+          onError={onAuthError}
+          onClose={() => toggle()}
+          onSuccess={() => window.location.reload()}
+          messages={{
+            title: 'Payment Required',
+            scan: 'Pay 5 TBA to view secret documented',
+            confirm: 'Confirm payment on your ABT Wallet',
+            success: 'You have successfully paid!',
+          }}
+        />
+      )}
     </Layout>
   );
 }
@@ -127,7 +127,6 @@ const Main = styled.main`
   display: flex;
 
   .avatar {
-    margin-right: 80px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
