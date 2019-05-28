@@ -4,13 +4,13 @@ import useAsyncFn from 'react-use/lib/useAsyncFn';
 import useToggle from 'react-use/lib/useToggle';
 import { fromUnitToToken } from '@arcblock/forge-util';
 
+import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Dialog from '@material-ui/core/Dialog';
 import Auth from '@arcblock/react-forge/lib/Auth';
 import Avatar from '@arcblock/react-forge/lib/Avatar';
 
@@ -79,72 +79,72 @@ export default function ProfilePage() {
   return (
     <Layout title="Profile">
       <Main>
-        {isOpen && (
-          <Dialog open maxWidth="sm" disableBackdropClick disableEscapeKeyDown onClose={() => setOpen()}>
-            <Auth
-              responsive
-              action="checkin"
-              checkFn={api.get}
-              onError={onAuthError}
-              onClose={() => setOpen()}
-              onSuccess={() => window.location.reload()}
-              messages={{
-                title: 'Get 25 TBA for FREE',
-                scan: 'Scan qrcode to get 25 TBA for FREE',
-                confirm: 'Confirm on your ABT Wallet',
-                success: '25 TBA sent to your account',
-              }}
-            />
-          </Dialog>
-        )}
-        <div className="avatar">
-          <Avatar size={240} did={state.value.user.did} />
-          <Button color="secondary" variant="outlined" onClick={onLogout}>
-            Logout
-          </Button>
-          <Button color="primary" variant="outlined" href="/payment" style={{ marginTop: '30px' }}>
-            My Purchase
-          </Button>
-          {balance.value && balance.value.account && (
-            <Button color="primary" variant="contained" onClick={() => setOpen()} style={{ marginTop: '30px' }}>
-              Get 25 TBA
+        <Grid container spacing={40}>
+          <Grid item xs={12} md={3} className="avatar">
+            <Avatar size={240} did={state.value.user.did} />
+            <Button color="secondary" variant="outlined" onClick={onLogout}>
+              Logout
             </Button>
-          )}
-        </div>
-        <div className="meta">
-          <Typography component="h3" variant="h4">
-            My Profile
-          </Typography>
-          <List>
-            <ListItem className="meta-item">
-              <ListItemText primary={state.value.user.did} secondary="DID" />
-            </ListItem>
-            <ListItem className="meta-item">
-              <ListItemText primary={state.value.user.name || '-'} secondary="Name" />
-            </ListItem>
-            <ListItem className="meta-item">
-              <ListItemText primary={state.value.user.email || '-'} secondary="Email" />
-            </ListItem>
-            <ListItem className="meta-item">
-              <ListItemText primary={state.value.user.mobile || '-'} secondary="Phone" />
-            </ListItem>
-            <ListItem className="meta-item">
-              <ListItemText
-                primary={
-                  balance.value && balance.value.account && balance.value.token ? (
-                    `${fromUnitToToken(balance.value.account.balance, balance.value.token.decimal)} ${
-                      balance.value.token.symbol
-                    }`
-                  ) : (
-                    <CircularProgress size={18} />
-                  )
-                }
-                secondary="Account Balance"
-              />
-            </ListItem>
-          </List>
-        </div>
+            <Button color="primary" variant="outlined" href="/payment" style={{ marginTop: '30px' }}>
+              My Purchase
+            </Button>
+            {balance.value && balance.value.account && (
+              <Button color="primary" variant="contained" onClick={() => setOpen()} style={{ marginTop: '30px' }}>
+                Get 25 TBA
+              </Button>
+            )}
+          </Grid>
+          <Grid item xs={12} md={8} className="meta">
+            <Typography component="h3" variant="h4">
+              My Profile
+            </Typography>
+            <List>
+              <ListItem className="meta-item">
+                <ListItemText primary={state.value.user.did} secondary="DID" />
+              </ListItem>
+              <ListItem className="meta-item">
+                <ListItemText primary={state.value.user.name || '-'} secondary="Name" />
+              </ListItem>
+              <ListItem className="meta-item">
+                <ListItemText primary={state.value.user.email || '-'} secondary="Email" />
+              </ListItem>
+              <ListItem className="meta-item">
+                <ListItemText primary={state.value.user.mobile || '-'} secondary="Phone" />
+              </ListItem>
+              <ListItem className="meta-item">
+                <ListItemText
+                  primary={
+                    balance.value && balance.value.account && balance.value.token ? (
+                      `${fromUnitToToken(balance.value.account.balance, balance.value.token.decimal)} ${
+                        balance.value.token.symbol
+                      }`
+                    ) : (
+                      <CircularProgress size={18} />
+                    )
+                  }
+                  secondary="Account Balance"
+                />
+              </ListItem>
+            </List>
+          </Grid>
+        </Grid>
       </Main>
+      {isOpen && (
+        <Auth
+          responsive
+          action="checkin"
+          checkFn={api.get}
+          onError={onAuthError}
+          onClose={() => setOpen()}
+          onSuccess={() => window.location.reload()}
+          messages={{
+            title: 'Get 25 TBA for FREE',
+            scan: 'Scan qrcode to get 25 TBA for FREE',
+            confirm: 'Confirm on your ABT Wallet',
+            success: '25 TBA sent to your account',
+          }}
+        />
+      )}
     </Layout>
   );
 }
@@ -154,7 +154,6 @@ const Main = styled.main`
   display: flex;
 
   .avatar {
-    margin-right: 80px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
