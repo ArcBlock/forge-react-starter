@@ -26,8 +26,22 @@ if (!process.env.MONGO_URI) {
 }
 
 // Connect to database
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+let isConnectedBefore = false;
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, autoReconnect: true });
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connection.on('disconnected', () => {
+  console.log('Lost MongoDB connection...');
+  if (!isConnectedBefore) {
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, autoReconnect: true });
+  }
+});
+mongoose.connection.on('connected', () => {
+  isConnectedBefore = true;
+  console.log('Connection established to MongoDB');
+});
+mongoose.connection.on('reconnected', () => {
+  console.log('Reconnected to MongoDB');
+});
 
 // Create and config express application
 const server = express();
